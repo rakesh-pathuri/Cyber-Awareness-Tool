@@ -10,9 +10,11 @@
 
 ## Overview
 
-Nowadays, kids are getting access to smartphones and computers at a very young age, often without any fundamental knowledge of cyber threats. This leaves them highly vulnerable to dangers like phishing, social engineering, and malicious downloads. 
+Nowadays, kids are getting smartphones and computers at a very young age, often without knowing about cyber threats. This leaves them vulnerable to dangers like phishing, social engineering, and malicious downloads. 
 
-I built the **Cyber Awareness Lab** as an effort to teach and bring much-needed cyber awareness to kids in the 13-18 age group. Reading about a phishing attack or ransomware is fundamentally different from experiencing it firsthand. This platform bridges that gap by providing a safe, interactive sandbox where users can experience simulated cyber threats in real-time. By actively participating in scenarios—like spotting deepfakes, configuring secure passwords, or escaping a ransomware attack—students develop practical reflexes rather than just theoretical knowledge. The platform is optimized for landscape orientation devices (like tablets and laptops) to provide an immersive app-like experience. It includes a dedicated Student Dashboard for self-paced learning and a Teacher Dashboard for classroom presentations.
+I built the **Cyber Awareness Lab** to teach cyber awareness to kids aged 13-18. Reading about a phishing attack is different from seeing one. This platform provides interactive, simulated cyber threats. By participating in scenarios—like spotting fake emails, creating secure passwords, or understanding ransomware—students learn how to react in real situations. 
+
+The platform is optimized for landscape devices (like tablets and laptops). It includes a Student Dashboard for learning on their own, and a Teacher Dashboard for classroom presentations.
 
 ## Project Architecture
 
