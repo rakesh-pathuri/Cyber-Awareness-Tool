@@ -1,0 +1,10 @@
+{
+  "home": {
+    "title": "Laboratorio de Conciencia Cibernética",
+    "subtitle": "Aprende ciberseguridad a través de simulaciones seguras e interactivas.",
+    "student_mode": "Modo Estudiante",
+    "student_desc": "Explora simulaciones cibernéticas a tu propio ritmo.",
+    "teacher_mode": "Modo Profesor",
+    "teacher_desc": "Lanza un taller interactivo guiado para tu aula."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "home": {
+    "title": "Cyber Awareness Lab",
+    "subtitle": "Learn cybersecurity through safe, interactive simulations.",
+    "student_mode": "Student Mode",
+    "student_desc": "Explore cyber simulations at your own pace.",
+    "teacher_mode": "Teacher Mode",
+    "teacher_desc": "Launch a guided interactive workshop for your classroom."
+  }
+}

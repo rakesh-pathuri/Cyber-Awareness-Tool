@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+body {
+  background-color: #f5f5f7; /* Apple light background */
+  color: #1d1d1f; /* Apple dark text */
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
