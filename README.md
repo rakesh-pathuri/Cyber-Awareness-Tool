@@ -6,13 +6,13 @@
 [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **Project Goal:** Make cybersecurity education accessible, engaging, and hands-on by providing interactive threat simulations specifically designed for kids and teenagers (ages 13-18), alongside powerful presentation tools for teachers.
+> **Project Goal:** Make cybersecurity education accessible, engaging, and hands-on by providing interactive threat simulations specifically designed for kids and teenagers (ages 13-18).
 
 ## Overview
 
-Cybersecurity training is often dry, theoretical, and difficult to grasp for younger audiences. Reading about a phishing attack or ransomware is fundamentally different from experiencing it firsthand.
+Nowadays, kids are getting access to smartphones and computers at a very young age, often without any fundamental knowledge of cyber threats. This leaves them highly vulnerable to dangers like phishing, social engineering, and malicious downloads. 
 
-Cyber Awareness Lab bridges this gap. It provides a safe, interactive sandbox where users can experience simulated cyber threats in real-time. By actively participating in scenarios—like spotting deepfakes, configuring secure passwords, or escaping a ransomware attack—students develop practical reflexes rather than just theoretical knowledge. The platform is optimized for landscape orientation devices (like tablets and laptops) to provide an immersive app-like experience. It includes a dedicated Student Dashboard for self-paced learning and a Teacher Dashboard for classroom presentations.
+I built the **Cyber Awareness Lab** as an effort to teach and bring much-needed cyber awareness to kids in the 13-18 age group. Reading about a phishing attack or ransomware is fundamentally different from experiencing it firsthand. This platform bridges that gap by providing a safe, interactive sandbox where users can experience simulated cyber threats in real-time. By actively participating in scenarios—like spotting deepfakes, configuring secure passwords, or escaping a ransomware attack—students develop practical reflexes rather than just theoretical knowledge. The platform is optimized for landscape orientation devices (like tablets and laptops) to provide an immersive app-like experience. It includes a dedicated Student Dashboard for self-paced learning and a Teacher Dashboard for classroom presentations.
 
 ## Project Architecture
 
