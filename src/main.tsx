@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { registerSW } from 'virtual:pwa-register'
 
-const updateSW = registerSW({
+registerSW({
   onNeedRefresh() {},
   onOfflineReady() {},
 })
