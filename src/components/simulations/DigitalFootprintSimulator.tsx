@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+﻿import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Database, Fingerprint, MapPin, Camera, History, AlertTriangle, ShieldCheck, RefreshCcw, Map } from 'lucide-react';
 
@@ -15,7 +15,8 @@ export default function DigitalFootprintSimulator() {
     };
   }, []);
 
-  const targetUsername = 'Alex_Gamer2010';
+  const targetUsername = 'Rohit_Gamer2010';
+  const targetName = 'Rohit Kumar';
 
   const runScan = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -32,7 +33,7 @@ export default function DigitalFootprintSimulator() {
       "> Cross-referencing public gaming profiles...",
       "> Found 4 linked accounts (Steam, Xbox, PlayStation, Discord)",
       "> Correlating email addresses...",
-      "> Real name identified: Alex Johnson",
+      "> Real name identified: Rohit Kumar",
       "> Extracting images from public Instagram feed...",
       "> Analyzing EXIF metadata from 'dog_photo.jpg'...",
       "> WARNING: GPS coordinates found hidden in photo data.",
@@ -105,7 +106,7 @@ export default function DigitalFootprintSimulator() {
                   type="text" 
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="e.g., Alex_Gamer2010"
+                  placeholder="e.g., Rohit_Gamer2010"
                   className="w-full bg-gray-800 border-2 border-gray-700 rounded-xl px-6 py-4 text-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors shadow-inner"
                 />
                 <button 
@@ -190,7 +191,7 @@ export default function DigitalFootprintSimulator() {
                   <div className="w-20 h-20 bg-gray-700 rounded-full mx-auto mb-3 border-4 border-gray-600 flex items-center justify-center overflow-hidden shrink-0">
                     <UserSilhouette />
                   </div>
-                  <h3 className="text-center font-bold text-xl text-white mb-0.5 shrink-0">Alex Johnson</h3>
+                  <h3 className="text-center font-bold text-xl text-white mb-0.5 shrink-0">Rohit Kumar</h3>
                   <p className="text-center text-blue-400 font-mono text-xs mb-4 shrink-0">@{username || targetUsername}</p>
                   
                   <div className="space-y-3 flex-1 overflow-y-auto">
@@ -252,8 +253,8 @@ export default function DigitalFootprintSimulator() {
                      <div className="bg-gray-900 p-3 rounded-lg border border-gray-700 shrink-0">
                        <div className="flex items-center gap-2 mb-1.5">
                          <div className="w-5 h-5 bg-gray-700 rounded-full flex items-center justify-center overflow-hidden"><UserSilhouette /></div>
-                         <span className="font-bold text-xs">Alex Johnson</span>
-                         <span className="text-gray-500 text-[10px]">@Alex_Gamer2010 • Nov 14, 2024</span>
+                         <span className="font-bold text-xs">Rohit Kumar</span>
+                         <span className="text-gray-500 text-[10px]">@Rohit_Gamer2010 • Nov 14, 2024</span>
                        </div>
                        <p className="text-gray-300 text-xs">
                          Skipped work today to play video games lol don't tell my boss. So glad I called in "sick". 😷🎮
@@ -330,3 +331,4 @@ function UserSilhouette() {
     </svg>
   );
 }
+

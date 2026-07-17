@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Settings, Camera, Mic, MapPin, Activity, Terminal, Copy, WifiOff, AlertTriangle, Fingerprint } from 'lucide-react';
 
@@ -18,7 +18,7 @@ export default function SpywareSimulator() {
     const keystrokes = [
       'Opened Browser...',
       'Navigating to: bank-of-america.com/login',
-      'Input Username: johndoe1999',
+      'Input Username: rahul_sharma1999',
       'Input Password: *********',
       'Submitting login...',
       'Opened Messages...',
@@ -350,3 +350,4 @@ export default function SpywareSimulator() {
     </div>
   );
 }
+

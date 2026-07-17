@@ -156,7 +156,7 @@ export default function PhishingSimulator() {
       <div className="bg-white rounded-3xl shadow-[0_4px_20px_rgb(0,0,0,0.06)] border border-gray-200 overflow-hidden w-[350px] mx-auto flex flex-col h-[400px]">
         {/* Header */}
         <div className="bg-white px-4 py-3 border-b border-gray-200 flex items-center justify-center relative shrink-0">
-          <span className="font-semibold text-[#262626] text-[15px]">@alex_smith99</span>
+          <span className="font-semibold text-[#262626] text-[15px]">@rohit_kumar99</span>
         </div>
         
         {/* Chat Area */}

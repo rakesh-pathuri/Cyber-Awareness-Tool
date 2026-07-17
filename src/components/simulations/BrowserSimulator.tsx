@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, RotateCw, Search, Lock, X, AlertTriangle, ShieldAlert, MonitorDown, Plus, Download, AlertCircle, RefreshCcw, Globe } from 'lucide-react';
 
@@ -254,7 +254,7 @@ export default function BrowserSimulator() {
                         </p>
                         <div className="bg-yellow-100 border border-yellow-300 p-4 mb-6 text-lg font-bold">
                           Call Microsoft Support Immediately: <br/>
-                          <span className="text-2xl text-blue-600">1-800-555-0199</span>
+                          <span className="text-2xl text-blue-600">+91 1800-123-4567</span>
                         </div>
                         <div className="flex gap-2 justify-end">
                           <button className="bg-gray-200 text-gray-800 px-4 py-2 font-bold cursor-not-allowed opacity-50">Cancel</button>
@@ -339,3 +339,4 @@ export default function BrowserSimulator() {
     </div>
   );
 }
+
