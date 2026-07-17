@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Database, Fingerprint, MapPin, Camera, History, AlertTriangle, ShieldCheck, RefreshCcw, Map } from 'lucide-react';
 
@@ -16,7 +16,6 @@ export default function DigitalFootprintSimulator() {
   }, []);
 
   const targetUsername = 'Rohit_Gamer2010';
-  const targetName = 'Rohit Kumar';
 
   const runScan = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
