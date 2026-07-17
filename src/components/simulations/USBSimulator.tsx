@@ -200,11 +200,11 @@ exit`;
                 className="absolute inset-0 bg-red-900/90 backdrop-blur-md z-30 flex flex-col items-center justify-center text-white p-8"
               >
                 <ShieldAlert className="w-32 h-32 mb-6 text-red-500 animate-pulse drop-shadow-[0_0_20px_rgba(239,68,68,0.8)]" />
-                <h2 className="text-5xl font-black tracking-tighter mb-4 text-center text-white drop-shadow-lg">SYSTEM COMPROMISED</h2>
+                <h2 className="text-5xl font-black tracking-tighter mb-4 text-center text-white drop-shadow-lg">SYSTEM HACKED</h2>
                 <div className="font-mono text-red-300 text-sm mb-8 text-center space-y-1 bg-black/40 p-4 rounded-xl border border-red-500/30">
-                  <p>ALL FILES ENCRYPTED.</p>
-                  <p>BACKDOOR ACCESS GRANTED TO: <span className="text-white">UNKNOWN_HOST</span></p>
-                  <p>NETWORK PROPAGATION: <span className="text-white">INITIATED</span></p>
+                  <p>ALL FILES DELETED.</p>
+                  <p>HACKER CONNECTED.</p>
+                  <p>STEALING SECRETS... <span className="text-white">DONE</span></p>
                 </div>
               </motion.div>
             )}
@@ -217,9 +217,9 @@ exit`;
               >
                 <div className="max-w-2xl text-center flex flex-col items-center">
                   <AlertTriangle className="w-16 h-16 text-yellow-500 mb-4" />
-                  <h2 className="text-4xl font-bold mb-4 text-white">The Rubber Ducky Attack</h2>
+                  <h2 className="text-4xl font-bold mb-4 text-white">The Poisoned Flash Drive</h2>
                   <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                    That USB drive wasn't a storage device. It was a microcomputer disguised as a keyboard.
+                    That USB drive wasn't holding files. It was a tiny robot in disguise!
                   </p>
                   
                   <div className="text-left w-full bg-white/10 rounded-xl p-5 mb-6 border border-white/20">
@@ -228,23 +228,23 @@ exit`;
                       <li className="flex items-start gap-3">
                         <div className="bg-yellow-500/20 text-yellow-400 p-1.5 rounded mt-0.5"><ShieldCheck className="w-5 h-5" /></div>
                         <div>
-                          <strong className="block text-white text-[16px]">Bypassing Antivirus</strong>
-                          <span className="text-[14px] text-gray-400">Computers are designed to implicitly trust human interface devices. Windows Defender saw a "keyboard" connecting, so it found no threats.</span>
+                          <strong className="block text-white text-[16px]">Tricking the Computer</strong>
+                          <span className="text-[14px] text-gray-400">Computers trust keyboards. The tiny robot told your computer 'I am a keyboard', so the computer let it right in.</span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
                         <div className="bg-yellow-500/20 text-yellow-400 p-1.5 rounded mt-0.5"><Cpu className="w-5 h-5" /></div>
                         <div>
-                          <strong className="block text-white text-[16px]">Superhuman Speed</strong>
-                          <span className="text-[14px] text-gray-400">The fake keyboard instantly types thousands of malicious commands faster than a human ever could, installing malware and deleting files before you can even react.</span>
+                          <strong className="block text-white text-[16px]">Robot Speed</strong>
+                          <span className="text-[14px] text-gray-400">The fake keyboard instantly typed thousands of commands in one second, deleting all your games before you could even blink!</span>
                         </div>
                       </li>
                     </ul>
                   </div>
 
                   <div className="bg-red-500/20 border border-red-500/30 rounded-xl p-4 text-left w-full mb-8">
-                    <strong className="text-red-400 block mb-1">The Lesson:</strong>
-                    <span className="text-gray-300 text-sm">Never plug an untrusted or "found" USB device into your computer. If you find one, hand it over to IT or security personnel.</span>
+                    <strong className="text-red-400 block mb-1">Stranger Danger for Computers:</strong>
+                    <span className="text-gray-300 text-sm">Never plug a found USB drive into your computer. It might be a tiny robot trap!</span>
                   </div>
 
                   <button 

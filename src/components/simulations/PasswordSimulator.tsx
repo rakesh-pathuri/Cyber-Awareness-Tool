@@ -34,7 +34,7 @@ export default function PasswordSimulator() {
     if (isCommon) {
       setStrength(5);
       setCrackTime('Instantly');
-      setFeedback('Dictionary Attack: Hackers test common passwords in milliseconds.');
+      setFeedback('Super Common: Hacker robots guess these easy passwords instantly!');
       setIsDictionary(true);
       return;
     }
@@ -56,19 +56,19 @@ export default function PasswordSimulator() {
 
     if (score < 20) {
       setCrackTime('Instantly');
-      setFeedback('Brute Force: A computer can guess this immediately.');
+      setFeedback('Too Easy: A robot can guess this immediately by trying every letter.');
     } else if (score < 40) {
       setCrackTime('A few minutes');
-      setFeedback('A bit better, but still easily cracked by automated tools.');
+      setFeedback('A bit better, but still too easy for a guessing robot.');
     } else if (score < 60) {
       setCrackTime('Several days');
-      setFeedback('Getting stronger, but a dedicated hacker could break it.');
+      setFeedback('Getting stronger, but a hacker could still figure it out.');
     } else if (score < 80) {
       setCrackTime('Hundreds of years');
-      setFeedback('Strong! It would take centuries for a normal computer to guess this.');
+      setFeedback('Super Strong! It would take hundreds of years for a robot to guess this.');
     } else {
       setCrackTime('Trillions of years');
-      setFeedback('Unbreakable. This is a highly secure password/passphrase.');
+      setFeedback('Unbreakable! This is an amazing secret code.');
     }
   };
 
@@ -93,9 +93,9 @@ export default function PasswordSimulator() {
       
       {/* Simulation Header */}
       <div className="text-center mb-2">
-        <h2 className="text-[24px] font-semibold tracking-tight text-[#1d1d1f] mb-1">Password Strength Simulator</h2>
+        <h2 className="text-[24px] font-semibold tracking-tight text-[#1d1d1f] mb-1">How Strong is Your Secret Code?</h2>
         <p className="text-[14px] text-[#86868b] max-w-lg mx-auto">
-          Type a password below to see how an attacker's computer views it. Notice how length defeats complexity.
+          Type a password below to see how fast a hacker's robot could guess it. A long password is the best password!
         </p>
       </div>
 
@@ -117,7 +117,7 @@ export default function PasswordSimulator() {
         {/* Results Data */}
         <div className="grid grid-cols-2 gap-3 mb-3">
           <div className="bg-[#f5f5f7] p-3 rounded-lg flex flex-col items-center justify-center text-center">
-            <span className="text-[11px] uppercase tracking-wider font-bold text-[#86868b] mb-0.5">Time to Crack</span>
+            <span className="text-[11px] uppercase tracking-wider font-bold text-[#86868b] mb-0.5">Time to Hack</span>
             <span className={`text-[18px] font-bold ${strength < 40 ? 'text-[#ff3b30]' : 'text-[#34c759]'}`}>
               {crackTime}
             </span>
@@ -161,7 +161,7 @@ export default function PasswordSimulator() {
             onClick={generatePassphrase}
             className="inline-flex items-center px-4 py-2 bg-[#1d1d1f] text-white rounded-full font-medium text-[13px] hover:bg-[#000000] transition-colors shadow-sm"
           >
-            <RefreshCw className="w-3.5 h-3.5 mr-1.5" /> Generate Passphrase
+            <RefreshCw className="w-3.5 h-3.5 mr-1.5" /> Make a Fun Password!
           </button>
         </div>
 

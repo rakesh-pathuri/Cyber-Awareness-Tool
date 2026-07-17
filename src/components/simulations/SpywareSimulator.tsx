@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Settings, Camera, Mic, MapPin, Activity, Terminal, Copy, WifiOff, AlertTriangle, Fingerprint } from 'lucide-react';
 
@@ -226,7 +226,7 @@ export default function SpywareSimulator() {
         <div className="bg-[#111] px-4 py-3 border-b border-gray-800 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Terminal className="w-4 h-4 text-green-500" />
-            <span className="text-[12px] font-bold uppercase tracking-widest text-green-500">Extraction Node</span>
+            <span className="text-[12px] font-bold uppercase tracking-widest text-green-500">Hacker's Computer</span>
           </div>
           <div className={`w-2 h-2 rounded-full ${(status === 'active' || status === 'settings') ? 'bg-red-500 animate-pulse' : 'bg-gray-600'}`}></div>
         </div>
@@ -236,7 +236,7 @@ export default function SpywareSimulator() {
             
             {/* Keylogger feed */}
             <div className="col-span-2 border border-green-900/50 bg-green-950/10 rounded-lg p-3.5 relative overflow-hidden flex flex-col">
-              <h4 className="text-[10px] uppercase text-green-400/70 mb-2 flex items-center shrink-0"><Activity className="w-3 h-3 mr-1.5" /> Live Keystrokes</h4>
+              <h4 className="text-[10px] uppercase text-green-400/70 mb-2 flex items-center shrink-0"><Activity className="w-3 h-3 mr-1.5" /> Reading Your Messages</h4>
               <div className="text-[12px] leading-relaxed break-all overflow-hidden flex-1 relative">
                 <div className="absolute inset-0 overflow-hidden flex flex-col justify-end">
                   {keyloggerLog.map((log, i) => (
@@ -281,7 +281,7 @@ export default function SpywareSimulator() {
 
             {/* Clipboard Intercept */}
             <div className="col-span-2 border border-green-900/50 bg-green-950/10 rounded-lg p-3.5 relative overflow-hidden flex flex-col">
-              <h4 className="text-[10px] uppercase text-green-400/70 mb-2 flex items-center"><Copy className="w-3 h-3 mr-1.5" /> Clipboard Intercept</h4>
+              <h4 className="text-[10px] uppercase text-green-400/70 mb-2 flex items-center"><Copy className="w-3 h-3 mr-1.5" /> Stealing Copied Text</h4>
               <div className="text-[12px] text-yellow-400 font-bold bg-yellow-900/20 p-2.5 rounded border border-yellow-900/50 flex-1 flex items-center overflow-hidden">
                 <span className="truncate">{clipboard}</span>
               </div>
@@ -291,20 +291,20 @@ export default function SpywareSimulator() {
         ) : (
           <div className="flex-1 flex flex-col items-center justify-center p-8 text-center text-gray-600">
             <WifiOff className="w-16 h-16 mb-4 opacity-50" />
-            <div className="text-[20px] font-bold mb-3">TARGET OFFLINE</div>
-            <div className="text-[13px]">Waiting for target to grant permissions...</div>
+            <div className="text-[20px] font-bold mb-3">NOT SPYING YET</div>
+            <div className="text-[13px]">Waiting for you to click 'Allow'...</div>
           </div>
         )}
       </div>
 
       {/* Right Column: Instructions */}
       <div className="flex-1 max-w-sm flex flex-col justify-center">
-        <h2 className="text-[32px] font-semibold tracking-tight text-[#1d1d1f] mb-4">Spyware Dashboard</h2>
+        <h2 className="text-[32px] font-semibold tracking-tight text-[#1d1d1f] mb-4">The Invisible Spy!</h2>
         <p className="text-[16px] leading-relaxed text-[#86868b] mb-6">
-          {status === 'app' && 'Look at the innocent Flashlight app. Why does it need access to your microphone and contacts? Click "Allow All" to see what happens.'}
-          {status === 'active' && 'The app is now secretly streaming your location, listening to your microphone, and recording your keystrokes to a remote server.'}
-          {status === 'settings' && 'Go into your phone settings and revoke all unnecessary permissions from the app.'}
-          {status === 'revoked' && 'Perfect. You have cut the feed. Never grant permissions to apps that don\'t explicitly need them.'}
+          {status === 'app' && 'Look at this simple Flashlight app. Why does a flashlight need to use your microphone and camera? Click "Allow All" to see what happens.'}
+          {status === 'active' && 'The "Invisible Spy" is now secretly tracking where you are, listening to your microphone, and reading every text message you type!'}
+          {status === 'settings' && 'Go into your phone settings and turn off these permissions!'}
+          {status === 'revoked' && 'Perfect! You stopped the spy. Never say "Allow" if an app asks for things it doesn\'t need!'}
         </p>
 
         <div className="h-[120px] relative">
@@ -319,10 +319,10 @@ export default function SpywareSimulator() {
               >
                 <AlertTriangle className="w-8 h-8 text-red-600 mb-2" />
                 <p className="text-[14px] font-semibold text-red-900 mb-2">
-                  They are stealing your data!
+                  They are spying on you!
                 </p>
                 <p className="text-[13px] text-red-700 leading-tight">
-                  Click the <Settings className="inline w-3.5 h-3.5 mx-1" /> Settings icon on the phone to cut the feed.
+                  Click the <Settings className="inline w-3.5 h-3.5 mx-1" /> Settings icon on the phone to stop them.
                 </p>
               </motion.div>
             )}
@@ -336,10 +336,10 @@ export default function SpywareSimulator() {
               >
                 <AlertTriangle className="w-8 h-8 text-blue-600 mb-2" />
                 <p className="text-[14px] font-semibold text-blue-900 mb-2">
-                  Revoke Permissions
+                  Turn Off Permissions
                 </p>
                 <p className="text-[13px] text-blue-700 leading-tight">
-                  Click the red "Revoke All" button on the phone to sever the hacker's connection.
+                  Click the red "Revoke All" button to kick the spy out!
                 </p>
               </motion.div>
             )}

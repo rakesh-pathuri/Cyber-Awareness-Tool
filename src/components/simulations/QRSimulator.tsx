@@ -305,20 +305,20 @@ export default function QRSimulator() {
             {isMalicious ? (
               <>
                 <AlertTriangle className="w-20 h-20 text-yellow-400 mb-6 drop-shadow-lg" />
-                <h2 className="text-5xl font-black mb-4 tracking-tighter">DATA STOLEN</h2>
-                <p className="text-xl mb-8 font-medium">You just fell for a "Sticker Swap" QR Code scam.</p>
+                <h2 className="text-5xl font-black mb-4 tracking-tighter">PASSWORD STOLEN!</h2>
+                <p className="text-xl mb-8 font-medium">You just got tricked by a fake sticker!</p>
               </>
             ) : (
               <>
                 <ShieldCheck className="w-20 h-20 text-emerald-400 mb-6 drop-shadow-lg" />
-                <h2 className="text-5xl font-black mb-4 tracking-tighter">PAYMENT SECURE</h2>
-                <p className="text-xl mb-8 font-medium">Great job! You found the fake sticker and used the real QR code.</p>
+                <h2 className="text-5xl font-black mb-4 tracking-tighter">YOU ARE SAFE!</h2>
+                <p className="text-xl mb-8 font-medium">Awesome! You peeled off the fake sticker and found the real code.</p>
               </>
             )}
 
             <div className="bg-black/40 border border-white/20 p-6 rounded-2xl max-w-2xl w-full flex flex-col gap-4">
               <h3 className={`font-bold ${isMalicious ? 'text-yellow-400' : 'text-emerald-400'} text-xl border-b border-white/10 pb-2`}>
-                {isMalicious ? 'The Breakdown' : 'Why this worked'}
+                {isMalicious ? 'The Trap' : 'How You Won'}
               </h3>
               
               <div className="flex gap-4 items-start">
@@ -327,8 +327,8 @@ export default function QRSimulator() {
                   <strong className="block text-lg">The Trap</strong>
                   <p className="text-gray-300 text-sm">
                     {isMalicious 
-                      ? 'A scammer printed a malicious QR code onto a sticker and slapped it perfectly over the real QR code on the parking meter.' 
-                      : 'You noticed the peeling corner and removed the malicious sticker, revealing the safe, original QR code underneath.'}
+                      ? 'A hacker printed a fake QR code on a sticker and put it right over the real one.' 
+                      : 'You saw the sticker peeling and took it off to find the real QR code hiding underneath!'}
                   </p>
                 </div>
               </div>
@@ -336,11 +336,11 @@ export default function QRSimulator() {
               <div className="flex gap-4 items-start mt-2">
                 <div className="bg-white/10 p-2 rounded-lg mt-1"><Search className="w-5 h-5 text-white" /></div>
                 <div>
-                  <strong className="block text-lg">The {isMalicious ? 'Mismatch' : 'Verification'}</strong>
+                  <strong className="block text-lg">The {isMalicious ? 'Clue' : 'Good Clue'}</strong>
                   <p className="text-gray-300 text-sm">
                     {isMalicious 
-                      ? <>The physical sign said <span className="text-blue-300 font-mono bg-blue-900/30 px-1 rounded">CityParking.com</span>. But the QR code took your phone to <span className="text-red-400 font-mono bg-red-900/30 px-1 rounded">c1typark1ng-payments.net</span>.</>
-                      : <>By scanning the original code, the URL securely routed you to <span className="text-emerald-300 font-mono bg-emerald-900/30 px-1 rounded">CityParking.com/pay</span>.</>}
+                      ? <>The real sign said <span className="text-blue-300 font-mono bg-blue-900/30 px-1 rounded">CityParking.com</span>, but the fake sticker sent your phone to a scammer's website: <span className="text-red-400 font-mono bg-red-900/30 px-1 rounded">c1typark1ng-payments.net</span>.</>
+                      : <>By scanning the real code, it took you to the safe and correct website: <span className="text-emerald-300 font-mono bg-emerald-900/30 px-1 rounded">CityParking.com/pay</span>.</>}
                   </p>
                 </div>
               </div>

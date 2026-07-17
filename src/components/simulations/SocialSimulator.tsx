@@ -319,29 +319,29 @@ export default function SocialSimulator() {
             {endResult === 'loss' ? (
               <>
                 <ShieldAlert className="w-20 h-20 text-yellow-400 mb-6 drop-shadow-lg" />
-                <h2 className="text-5xl font-black mb-4 tracking-tighter">ACCOUNT HACKED</h2>
-                <p className="text-xl mb-8 font-medium">You just fell for a Social Engineering scam.</p>
+                <h2 className="text-5xl font-black mb-4 tracking-tighter">ACCOUNT STOLEN!</h2>
+                <p className="text-xl mb-8 font-medium">You got tricked by a fake friend!</p>
               </>
             ) : (
               <>
                 <ShieldCheck className="w-20 h-20 text-emerald-400 mb-6 drop-shadow-lg" />
-                <h2 className="text-5xl font-black mb-4 tracking-tighter">ACCOUNT SECURE</h2>
-                <p className="text-xl mb-8 font-medium">Great job! You identified the red flags and defeated the scammer.</p>
+                <h2 className="text-5xl font-black mb-4 tracking-tighter">YOU ARE SAFE!</h2>
+                <p className="text-xl mb-8 font-medium">Awesome! You spotted the trick and stopped the hacker.</p>
               </>
             )}
 
             <div className="bg-black/40 border border-white/20 p-6 rounded-2xl max-w-2xl w-full flex flex-col gap-4">
               <h3 className={`font-bold ${endResult === 'loss' ? 'text-yellow-400' : 'text-emerald-400'} text-xl border-b border-white/10 pb-2`}>
-                {endResult === 'loss' ? 'The Red Flags You Missed' : 'The Red Flags You Spotted'}
+                {endResult === 'loss' ? 'The Tricks You Missed' : 'The Tricks You Spotted'}
               </h3>
               
               <ul className="space-y-4 mt-2">
                 <li className="flex gap-4 items-start">
                   <div className="bg-white/10 p-2 rounded-lg mt-1"><User className="w-5 h-5 text-white" /></div>
                   <div>
-                    <strong className="block text-lg">Fake Authority</strong>
+                    <strong className="block text-lg">Fake Boss</strong>
                     <p className="text-gray-300 text-sm">
-                      The scammer disguised themselves as an "Admin" to build trust. Real game administrators will *never* message you directly offering free currency.
+                      The hacker pretended to be an "Admin" so you would trust them. Real game admins will NEVER ask for your password or give away free money in a chat.
                     </p>
                   </div>
                 </li>
@@ -351,7 +351,7 @@ export default function SocialSimulator() {
                   <div>
                     <strong className="block text-lg">Too Good To Be True</strong>
                     <p className="text-gray-300 text-sm">
-                      Randomly winning 10,000 V-Bucks in a giveaway you never entered is a classic hook designed to make you act on emotion rather than logic.
+                      Winning 10,000 V-Bucks for free is a trick! Hackers use free stuff to make you excited so you forget to be careful.
                     </p>
                   </div>
                 </li>
@@ -362,7 +362,7 @@ export default function SocialSimulator() {
                     <div>
                       <strong className="block text-lg text-red-400">Never Share Passwords</strong>
                       <p className="text-gray-300 text-sm">
-                        You typed your actual password into the chat. No legitimate company will ever ask for your password to verify your account.
+                        You typed your password! NEVER tell anyone your password, not even your friends or the game admins.
                       </p>
                     </div>
                   </li>
@@ -372,9 +372,9 @@ export default function SocialSimulator() {
                   <li className="flex gap-4 items-start">
                     <div className="bg-white/10 p-2 rounded-lg mt-1"><ShieldAlert className="w-5 h-5 text-red-400" /></div>
                     <div>
-                      <strong className="block text-lg text-red-400">Phishing Links</strong>
+                      <strong className="block text-lg text-red-400">Fake Website Links</strong>
                       <p className="text-gray-300 text-sm">
-                        You clicked on <code className="bg-black/50 px-1 rounded">epic-games-rewards.net</code>, which is a fake domain designed to steal the login info you typed into it.
+                        You clicked a bad link! The hacker made a fake website to steal your password when you typed it in: <code className="bg-black/50 px-1 rounded">epic-games-rewards.net</code>.
                       </p>
                     </div>
                   </li>

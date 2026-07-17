@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, RotateCw, Search, Lock, X, AlertTriangle, ShieldAlert, MonitorDown, Plus, Download, AlertCircle, RefreshCcw, Globe } from 'lucide-react';
 
@@ -245,15 +245,15 @@ export default function BrowserSimulator() {
                         <X className="w-5 h-5 opacity-50 cursor-not-allowed" />
                       </div>
                       <div className="p-6 text-center">
-                        <h2 className="text-3xl font-black text-red-600 mb-4 uppercase">System Infected!</h2>
+                        <h2 className="text-3xl font-black text-red-600 mb-4 uppercase">VIRUS FOUND!</h2>
                         <p className="text-gray-700 font-bold mb-4 text-lg">
-                          Trojan_Spyware_Zeus.exe detected!
+                          BAD_HACKER_VIRUS detected!
                         </p>
                         <p className="text-gray-600 mb-6 text-sm">
-                          Your passwords, browser history, and credit card information are being stolen. Do not close this window or reboot your computer.
+                          Your games and passwords are being stolen right now! Do not close this window!
                         </p>
                         <div className="bg-yellow-100 border border-yellow-300 p-4 mb-6 text-lg font-bold">
-                          Call Microsoft Support Immediately: <br/>
+                          Call Help Desk Right Now: <br/>
                           <span className="text-2xl text-blue-600">+91 1800-123-4567</span>
                         </div>
                         <div className="flex gap-2 justify-end">
@@ -290,33 +290,33 @@ export default function BrowserSimulator() {
             >
               <div className="max-w-2xl text-center flex flex-col items-center mt-4">
                 <AlertCircle className="w-12 h-12 text-red-500 mb-3" />
-                <h2 className="text-3xl font-bold mb-2 text-white">You fell for the trap.</h2>
+                <h2 className="text-3xl font-bold mb-2 text-white">Oh no! You clicked a bad link!</h2>
                 <p className="text-lg text-gray-300 mb-4 leading-relaxed">
-                  You clicked on a malicious sponsored search result, leading to a site designed to infect your computer.
+                  You clicked on a fake "Sponsored" link that hackers paid to put at the top of Google.
                 </p>
                 
                 <div className="text-left w-full bg-white/10 rounded-xl p-4 mb-5 border border-white/20">
-                  <h3 className="font-bold text-base mb-2 text-blue-400 border-b border-white/20 pb-2">The Red Flags:</h3>
+                  <h3 className="font-bold text-base mb-2 text-blue-400 border-b border-white/20 pb-2">The Warning Signs:</h3>
                   <ul className="space-y-2.5">
                     <li className="flex items-start gap-3">
                       <div className="bg-red-500/20 text-red-400 p-1.5 rounded mt-0.5"><AlertTriangle className="w-4 h-4" /></div>
                       <div>
-                        <strong className="block text-white text-[15px]">Sponsored Results</strong>
-                        <span className="text-[13px] text-gray-400">Scammers pay Google to put their malicious websites at the top of the search results for popular keywords like "free download".</span>
+                        <strong className="block text-white text-[15px]">Paid Ads (Sponsored)</strong>
+                        <span className="text-[13px] text-gray-400">Hackers pay money to put their bad links at the very top of Google so you click them first!</span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="bg-red-500/20 text-red-400 p-1.5 rounded mt-0.5"><Lock className="w-4 h-4" /></div>
                       <div>
-                        <strong className="block text-white text-[15px]">Sketchy URL</strong>
-                        <span className="text-[13px] text-gray-400">The website address was clearly not the official source (minecraft.net).</span>
+                        <strong className="block text-white text-[15px]">Fake Website Names</strong>
+                        <span className="text-[13px] text-gray-400">The website name looked super weird and long, not like the real 'minecraft.net'.</span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="bg-red-500/20 text-red-400 p-1.5 rounded mt-0.5"><ShieldAlert className="w-4 h-4" /></div>
                       <div>
-                        <strong className="block text-white text-[15px]">Tech Support Scam / Scareware</strong>
-                        <span className="text-[13px] text-gray-400">The popup was fake. Microsoft and Apple will NEVER show a popup in your browser telling you to call a phone number.</span>
+                        <strong className="block text-white text-[15px]">Fake Pop-up Alarms</strong>
+                        <span className="text-[13px] text-gray-400">That scary red alarm was a trick! Real computers will never pop up and tell you to call a phone number.</span>
                       </div>
                     </li>
                   </ul>

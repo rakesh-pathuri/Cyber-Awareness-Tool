@@ -1,323 +1,233 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BrainCircuit, Image as ImageIcon, Mic, MessageSquare, AlertTriangle, CheckCircle, XCircle, ChevronRight, ShieldCheck, RefreshCcw } from 'lucide-react';
+import { BrainCircuit, Image as ImageIcon, Sparkles, UserCircle, ShieldCheck, ChevronRight, Eye, AlertTriangle, Lock, Video } from 'lucide-react';
 
-type Challenge = {
-  id: string;
-  type: 'image' | 'audio' | 'text';
-  title: string;
-  content: string;
-  imageUrl?: string;
-  isFake: boolean;
-  explanation: string;
-  tells: string[];
-};
-
-const CHALLENGES: Challenge[] = [
-  {
-    id: 'c1',
-    type: 'audio',
-    title: 'Urgent Voicemail',
-    content: '"Grandma? It\'s me. I was in a car accident and I\'m in jail. Please wire $5,000 for bail right now. Don\'t tell Mom and Dad, please. I\'m scared."',
-    isFake: true,
-    explanation: 'This is a Voice Cloning scam. Scammers only need 3 seconds of someone\'s voice (from a TikTok or Instagram video) to clone it using AI.',
-    tells: ['Creates false sense of extreme urgency', 'Asks for untraceable payment (wire transfer/gift cards)', 'Demands secrecy ("Don\'t tell Mom")']
-  },
-  {
-    id: 'c2',
-    type: 'image',
-    title: 'News Photo: "Shark in Flooded Street"',
-    content: 'A viral photo of a massive Great White Shark swimming down a flooded suburban street during a hurricane.',
-    imageUrl: '/images/fake_shark.png',
-    isFake: true,
-    explanation: 'AI image generators struggle with physics and context. While glancing at it seems real, looking closely reveals it\'s AI generated.',
-    tells: ['The lighting on the shark does not match the cloudy environment', 'The water ripples around the shark are unnatural', 'The scale of the shark is completely wrong compared to the cars']
-  },
-  {
-    id: 'c3',
-    type: 'text',
-    title: 'Message from a friend',
-    content: '"Hey! I know it\'s late but I got locked out of my bank account. Can you Venmo me $50 for a cab home? I\'ll pay you back tomorrow at school."',
-    isFake: false,
-    explanation: 'This is a common social engineering tactic, but the message itself isn\'t AI generated. However, it still requires VERIFICATION before acting.',
-    tells: ['Always call the friend on the phone to verify it\'s actually them before sending money!']
-  },
-  {
-    id: 'c4',
-    type: 'image',
-    title: 'YouTuber Console Giveaway',
-    content: 'A YouTube thumbnail showing a famous gamer giving away free PS5 consoles to anyone who clicks the link.',
-    imageUrl: '/images/fake_giveaway.png',
-    isFake: true,
-    explanation: 'This is a Deepfake/AI image scam. Scammers use AI to clone famous creators to endorse fake giveaways and steal information.',
-    tells: ['The person\'s face has a slightly robotic, plastic texture', 'The text on the boxes might be misspelled or strange', 'Too good to be true offer']
-  }
-];
+type Phase = 'intro' | 'what-is-ai' | 'what-is-deepfake' | 'demo' | 'safety';
 
 export default function AIDeepfakeSimulator() {
-  const [phase, setPhase] = useState<'intro' | 'game' | 'postmortem'>('intro');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showResult, setShowResult] = useState(false);
-  const [selectedAnswer, setSelectedAnswer] = useState<boolean | null>(null);
-  const [score, setScore] = useState(0);
+  const [phase, setPhase] = useState<Phase>('intro');
+  const [demoState, setDemoState] = useState<'real' | 'fake'>('real');
 
-  const currentChallenge = CHALLENGES[currentIndex];
+  const renderIntro = () => (
+    <div className="flex flex-col items-center justify-center min-h-[500px] py-12 text-center space-y-6 max-w-2xl mx-auto px-6">
+      <div className="w-24 h-24 bg-purple-100 rounded-full flex items-center justify-center mb-4 border-4 border-purple-200 shadow-lg">
+        <BrainCircuit className="w-12 h-12 text-purple-600" />
+      </div>
+      <h2 className="text-4xl font-black text-gray-900 tracking-tight">AI & Deepfakes</h2>
+      <p className="text-xl text-gray-600 leading-relaxed font-medium">
+        You've probably heard people talking about "AI" and "Deepfakes" on the news or on YouTube. But what are they, really?
+      </p>
+      <button 
+        onClick={() => setPhase('what-is-ai')}
+        className="mt-8 bg-purple-600 hover:bg-purple-500 text-white px-10 py-4 rounded-full font-black text-xl flex items-center gap-3 shadow-xl transition-transform hover:scale-105"
+      >
+        Let's Find Out! <ChevronRight className="w-6 h-6" />
+      </button>
+    </div>
+  );
 
-  const handleGuess = (guessIsFake: boolean) => {
-    setSelectedAnswer(guessIsFake);
-    setShowResult(true);
-    if (guessIsFake === currentChallenge.isFake) {
-      setScore(s => s + 1);
-    }
-  };
-
-  const nextChallenge = () => {
-    if (currentIndex < CHALLENGES.length - 1) {
-      setCurrentIndex(i => i + 1);
-      setShowResult(false);
-      setSelectedAnswer(null);
-    } else {
-      setPhase('postmortem');
-    }
-  };
-
-  const reset = () => {
-    setPhase('intro');
-    setCurrentIndex(0);
-    setScore(0);
-    setShowResult(false);
-    setSelectedAnswer(null);
-  };
-
-  return (
-    <div className="w-[1100px] mx-auto h-[550px] bg-slate-900 flex flex-col rounded-xl shadow-2xl border border-slate-700 overflow-hidden font-sans text-slate-100">
-      
-      {/* Header */}
-      <div className="h-14 bg-slate-950 border-b border-slate-800 flex items-center px-6 justify-between shrink-0">
-        <div className="flex items-center gap-3">
-          <BrainCircuit className="w-6 h-6 text-purple-500" />
-          <span className="font-black text-xl tracking-widest text-white">SYNTH-DETECT</span>
-          <span className="bg-purple-900/50 text-purple-400 text-[10px] uppercase font-bold px-2 py-0.5 rounded ml-2 border border-purple-700/50">
-            v2.4 AI Analysis
-          </span>
+  const renderWhatIsAI = () => (
+    <div className="flex flex-col items-center justify-center min-h-[500px] py-12 text-center max-w-3xl mx-auto px-6">
+      <div className="flex gap-6 mb-8">
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-xl flex flex-col items-center w-48">
+           <ImageIcon className="w-12 h-12 text-blue-500 mb-4" />
+           <span className="text-gray-700 font-bold">Millions of Pictures</span>
         </div>
-        {phase === 'game' && (
-          <div className="text-slate-400 text-sm font-bold bg-slate-900 px-4 py-1 rounded-full border border-slate-800">
-            Score: <span className="text-purple-400">{score}</span> / {CHALLENGES.length}
-          </div>
-        )}
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-xl flex flex-col items-center w-48 mt-8">
+           <BrainCircuit className="w-16 h-16 text-purple-600 mb-4 animate-pulse" />
+           <span className="text-gray-900 font-black text-lg">Robot Brain</span>
+        </div>
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-xl flex flex-col items-center w-48">
+           <Video className="w-12 h-12 text-pink-500 mb-4" />
+           <span className="text-gray-700 font-bold">Millions of Videos</span>
+        </div>
       </div>
 
-      <div className="flex-1 relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-slate-900 to-black">
+      <h2 className="text-3xl font-black text-gray-900 mb-6">What is AI?</h2>
+      <p className="text-lg text-gray-600 leading-relaxed bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm">
+        AI stands for <strong>Artificial Intelligence</strong>. Think of it like a super-fast, giant computer brain. 
+        Scientists feed this brain millions of pictures, books, and voices. Because it has seen so much, 
+        it can easily create brand new pictures or copy voices almost instantly!
+      </p>
+
+      <button 
+        onClick={() => setPhase('what-is-deepfake')}
+        className="mt-10 bg-purple-600 hover:bg-purple-500 text-white px-8 py-3 rounded-full font-bold text-lg flex items-center gap-2 transition-transform hover:scale-105 shadow-lg"
+      >
+        So what is a Deepfake? <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+  );
+
+  const renderWhatIsDeepfake = () => (
+    <div className="flex flex-col items-center justify-center min-h-[500px] py-12 text-center max-w-3xl mx-auto px-6">
+      <div className="relative mb-8">
+        <UserCircle className="w-32 h-32 text-gray-300" />
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="absolute inset-0 bg-purple-100 rounded-full flex items-center justify-center backdrop-blur-sm border-2 border-purple-300"
+        >
+           <Sparkles className="w-16 h-16 text-purple-500" />
+        </motion.div>
+      </div>
+
+      <h2 className="text-3xl font-black text-gray-900 mb-6">What is a Deepfake?</h2>
+      <p className="text-lg text-gray-600 leading-relaxed bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm">
+        A <strong>Deepfake</strong> is when someone uses that smart AI brain to copy a real person. 
+        They can take a picture of someone's face and swap it onto a completely different body. This makes a fake picture or video that looks totally real, even if it never actually happened!
+      </p>
+
+      <button 
+        onClick={() => setPhase('demo')}
+        className="mt-10 bg-purple-600 hover:bg-purple-500 text-white px-8 py-3 rounded-full font-bold text-lg flex items-center gap-2 transition-transform hover:scale-105 shadow-lg"
+      >
+        See an Example <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+  );
+
+  const renderDemo = () => (
+    <div className="flex flex-col items-center justify-center min-h-[500px] py-12 max-w-4xl mx-auto px-6">
+      <h2 className="text-3xl font-black text-gray-900 mb-2">Face Swap Deepfake Demo</h2>
+      <p className="text-gray-500 mb-10">See how easily AI can take a face and put it on a completely different body!</p>
+
+      <div className="flex w-full gap-8">
         
-        {/* INTRO */}
-        <AnimatePresence>
-          {phase === 'intro' && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center"
-            >
-              <div className="w-24 h-24 bg-purple-900/30 rounded-full flex items-center justify-center mb-8 border-4 border-purple-500/50 shadow-[0_0_30px_rgba(168,85,247,0.3)]">
-                <BrainCircuit className="w-12 h-12 text-purple-400" />
-              </div>
-              <h2 className="text-4xl font-black mb-4 text-white">Can You Spot The Deepfake?</h2>
-              <p className="text-xl text-slate-300 max-w-2xl mb-12">
-                Generative AI makes it easier than ever to create fake audio, images, and video. You will be presented with 4 scenarios. Your job is to determine if they are REAL or FAKE.
-              </p>
-              <button 
-                onClick={() => setPhase('game')}
-                className="bg-purple-600 hover:bg-purple-500 text-white px-10 py-4 rounded-full font-black text-xl flex items-center gap-3 shadow-[0_0_20px_rgba(147,51,234,0.4)] transition-transform hover:scale-105"
-              >
-                Start Detection <ChevronRight className="w-6 h-6" />
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Toggle Controls */}
+        <div className="w-1/3 flex flex-col gap-4">
+          <button 
+            onClick={() => setDemoState('real')}
+            className={`p-4 rounded-xl border-2 font-bold text-lg flex items-center justify-between transition-all ${demoState === 'real' ? 'bg-blue-50 border-blue-500 text-blue-700 shadow-sm' : 'bg-white border-gray-200 text-gray-500 hover:bg-gray-50 shadow-sm'}`}
+          >
+            <div className="flex items-center gap-3"><UserCircle className="w-6 h-6" /> Original Animal</div>
+            {demoState === 'real' && <ShieldCheck className="w-5 h-5 text-blue-600" />}
+          </button>
 
-        {/* GAME PHASE */}
+          <button 
+            onClick={() => setDemoState('fake')}
+            className={`p-4 rounded-xl border-2 font-bold text-lg flex items-center justify-between transition-all ${demoState === 'fake' ? 'bg-red-50 border-red-500 text-red-700 shadow-sm' : 'bg-white border-gray-200 text-gray-500 hover:bg-gray-50 shadow-sm'}`}
+          >
+            <div className="flex items-center gap-3"><BrainCircuit className="w-6 h-6" /> AI Deepfake</div>
+            {demoState === 'fake' && <AlertTriangle className="w-5 h-5 text-red-600" />}
+          </button>
+        </div>
+
+        {/* Player / Image Viewer */}
+        <div className="flex-1 bg-gray-50 border border-gray-200 shadow-lg rounded-2xl p-6 flex flex-col items-center justify-center relative overflow-hidden h-[350px]">
+          
+          <AnimatePresence mode="wait">
+            {demoState === 'real' ? (
+              <motion.div 
+                key="real"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col items-center w-full h-full"
+              >
+                <div className="flex-1 w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 relative">
+                   <img src="/assets/original_puppy.png" alt="Real Dog" className="w-full h-full object-cover" />
+                </div>
+                <div className="mt-4 font-bold text-blue-700 bg-blue-100 px-4 py-1.5 rounded-full text-sm">
+                  Original Photo: A Cute Puppy
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div 
+                key="fake"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col items-center w-full h-full"
+              >
+                <div className="flex-1 w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 relative">
+                   <img src="/assets/puppy_lion_deepfake.png" alt="Fake Lion Dog" className="w-full h-full object-cover" />
+                   
+                   {/* Scanning Effect Overlay */}
+                   <motion.div 
+                     className="absolute inset-0 bg-red-500/10 border-b-2 border-red-500"
+                     initial={{ height: '0%' }}
+                     animate={{ height: '100%' }}
+                     transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
+                   />
+                </div>
+                <div className="mt-4 font-bold text-red-700 bg-red-100 px-4 py-1.5 rounded-full text-sm flex items-center">
+                  <AlertTriangle className="w-4 h-4 mr-1.5" /> Fake Photo: Puppy's Face on a Lion!
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          
+        </div>
+      </div>
+
+      <button 
+        onClick={() => setPhase('safety')}
+        className="mt-10 bg-purple-600 hover:bg-purple-500 text-white px-8 py-3 rounded-full font-bold text-lg flex items-center gap-2 transition-transform hover:scale-105 shadow-lg"
+      >
+        How to Stay Safe <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+  );
+
+  const renderSafety = () => (
+    <div className="flex flex-col items-center justify-center min-h-[500px] py-12 text-center max-w-4xl mx-auto px-6">
+      <ShieldCheck className="w-20 h-20 text-green-500 mb-6 drop-shadow-md" />
+      <h2 className="text-4xl font-black text-gray-900 mb-8 tracking-tight">How to Protect Yourself</h2>
+      
+      <div className="grid grid-cols-2 gap-6 w-full">
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-xl text-left">
+          <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 border border-green-200">
+            <Lock className="w-6 h-6 text-green-600" />
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">1. The Family Password</h3>
+          <p className="text-gray-600">
+            Agree on a secret word with your parents. If someone ever calls asking for money or claiming to be in an emergency, ask for the password. If they don't know it, hang up!
+          </p>
+        </div>
+
+        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-xl text-left">
+          <div className="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 border border-yellow-200">
+            <Eye className="w-6 h-6 text-yellow-600" />
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">2. Look for Glitches</h3>
+          <p className="text-gray-600">
+            AI still makes mistakes. In videos or photos, look closely at hands (too many fingers?), teeth, and shadows. If things look blurry or unnatural, it might be a Deepfake.
+          </p>
+        </div>
+      </div>
+
+      <button 
+        onClick={() => setPhase('intro')}
+        className="mt-10 bg-gray-200 hover:bg-gray-300 text-gray-900 px-8 py-3 rounded-full font-bold text-lg flex items-center gap-2 transition-transform shadow-sm"
+      >
+        Start Over
+      </button>
+    </div>
+  );
+
+  return (
+    <div className="w-full max-w-[1100px] mx-auto min-h-[600px] flex flex-col font-sans text-gray-900 relative">
+      <div className="flex-1 relative">
         <AnimatePresence mode="wait">
-          {phase === 'game' && (
-            <motion.div 
-              key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              className="absolute inset-0 flex flex-col p-5"
-            >
-              <div className="text-purple-400 font-bold mb-3 flex justify-between items-center text-sm shrink-0">
-                <span>Case File #{currentIndex + 1}</span>
-                <span className="text-slate-500">{currentIndex + 1} of {CHALLENGES.length}</span>
-              </div>
-              
-              <div className="flex-1 flex gap-5 overflow-hidden">
-                {/* Media Preview Area */}
-                <div className="flex-1 bg-slate-950 border border-slate-800 rounded-2xl flex flex-col relative overflow-hidden shadow-inner min-h-0">
-                  {/* Fake media player top bar */}
-                  <div className="h-8 bg-slate-900 border-b border-slate-800 flex items-center px-4 gap-2 shrink-0">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
-                    <div className="mx-auto text-[10px] font-mono text-slate-500 tracking-widest uppercase">
-                      {currentChallenge.type === 'audio' ? 'voicemail.mp3' : currentChallenge.type === 'image' ? 'attachment.jpg' : 'message.txt'}
-                    </div>
-                  </div>
-                  
-                  <div className="flex-1 flex flex-col items-center justify-center p-4 text-center overflow-y-auto">
-                    {currentChallenge.type === 'audio' && <Mic className="w-12 h-12 text-slate-600 mb-3 shrink-0" />}
-                    {currentChallenge.type === 'image' && !currentChallenge.imageUrl && <ImageIcon className="w-12 h-12 text-slate-600 mb-3 shrink-0" />}
-                    {currentChallenge.type === 'image' && currentChallenge.imageUrl && (
-                      <img src={currentChallenge.imageUrl} alt={currentChallenge.title} className="max-h-40 object-contain rounded-xl border border-slate-700 mb-3 shadow-lg shrink-0" />
-                    )}
-                    {currentChallenge.type === 'text' && <MessageSquare className="w-12 h-12 text-slate-600 mb-3 shrink-0" />}
-                    
-                    <h3 className="text-xl font-bold text-white mb-3 shrink-0">{currentChallenge.title}</h3>
-                    
-                    {currentChallenge.type === 'audio' ? (
-                       <div className="bg-slate-800 p-4 rounded-xl border border-slate-700 w-full relative group">
-                          <div className="flex items-center gap-3 mb-3">
-                            <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-sm">▶</div>
-                            <div className="flex-1 h-1.5 bg-slate-700 rounded-full overflow-hidden">
-                               <div className="w-1/3 h-full bg-blue-400"></div>
-                            </div>
-                            <div className="text-[10px] text-slate-400 font-mono">0:14 / 0:42</div>
-                          </div>
-                          <p className="text-sm italic text-slate-300">Transcript: {currentChallenge.content}</p>
-                       </div>
-                    ) : (
-                       <div className="bg-slate-800 p-4 rounded-xl border border-slate-700 w-full">
-                          <p className="text-sm text-slate-200">{currentChallenge.content}</p>
-                       </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Interaction Area */}
-                <div className="w-72 flex flex-col justify-center gap-3 shrink-0 min-h-0">
-                  {!showResult ? (
-                    <>
-                      <h3 className="text-xl font-black text-center mb-2">Make Your Call</h3>
-                      <button 
-                        onClick={() => handleGuess(false)}
-                        className="bg-slate-800 hover:bg-slate-700 border-2 border-slate-600 text-white p-5 rounded-2xl font-black text-lg transition-all hover:border-green-500 hover:text-green-400"
-                      >
-                        ✅ REAL
-                      </button>
-                      <button 
-                        onClick={() => handleGuess(true)}
-                        className="bg-slate-800 hover:bg-slate-700 border-2 border-slate-600 text-white p-5 rounded-2xl font-black text-lg transition-all hover:border-red-500 hover:text-red-400"
-                      >
-                        ❌ FAKE / AI
-                      </button>
-                    </>
-                  ) : (
-                    <motion.div 
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="bg-slate-800 border border-slate-700 rounded-2xl p-4 flex flex-col h-full overflow-hidden"
-                    >
-                      <div className="flex items-center gap-2 mb-3 border-b border-slate-700 pb-3 shrink-0">
-                        {selectedAnswer === currentChallenge.isFake ? (
-                          <CheckCircle className="w-6 h-6 text-green-500" />
-                        ) : (
-                          <XCircle className="w-6 h-6 text-red-500" />
-                        )}
-                        <h3 className="font-black text-lg">
-                          {selectedAnswer === currentChallenge.isFake ? 'CORRECT' : 'INCORRECT'}
-                        </h3>
-                      </div>
-
-                      <div className="flex-1 overflow-y-auto pr-1">
-                        <div className="mb-3">
-                          <span className="text-[10px] text-slate-400 font-bold uppercase block mb-0.5">Truth:</span>
-                          <span className={`font-black text-sm ${currentChallenge.isFake ? 'text-red-400' : 'text-green-400'}`}>
-                            {currentChallenge.isFake ? 'It is AI Generated (FAKE)' : 'It is REAL'}
-                          </span>
-                        </div>
-
-                        <p className="text-xs text-slate-300 mb-4">{currentChallenge.explanation}</p>
-                        
-                        {currentChallenge.tells.length > 0 && (
-                          <div className="mb-4">
-                            <span className="text-[10px] text-slate-400 font-bold uppercase block mb-1">The "Tells":</span>
-                            <ul className="space-y-1.5">
-                              {currentChallenge.tells.map((tell, idx) => (
-                                <li key={idx} className="text-[10px] leading-tight text-slate-300 flex gap-1.5 items-start bg-slate-900 p-1.5 rounded border border-slate-700">
-                                  <AlertTriangle className="w-3 h-3 text-yellow-500 shrink-0 mt-0.5" />
-                                  <span>{tell}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="pt-3 shrink-0 border-t border-slate-700 mt-2">
-                        <button 
-                          onClick={nextChallenge}
-                          className="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 rounded-lg font-bold text-sm flex items-center justify-center gap-1.5 transition-colors"
-                        >
-                          Next <ChevronRight className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </motion.div>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          )}
+          <motion.div
+            key={phase}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="w-full flex-1"
+          >
+            {phase === 'intro' && renderIntro()}
+            {phase === 'what-is-ai' && renderWhatIsAI()}
+            {phase === 'what-is-deepfake' && renderWhatIsDeepfake()}
+            {phase === 'demo' && renderDemo()}
+            {phase === 'safety' && renderSafety()}
+          </motion.div>
         </AnimatePresence>
-
-        {/* POSTMORTEM */}
-        <AnimatePresence>
-          {phase === 'postmortem' && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="absolute inset-0 bg-slate-900/95 backdrop-blur-md z-50 flex flex-col items-center justify-center p-6 text-white"
-            >
-              <ShieldCheck className="w-16 h-16 text-purple-400 mb-4 drop-shadow-lg" />
-              <h2 className="text-4xl font-black mb-2 text-center">TRUST, BUT VERIFY.</h2>
-              <p className="text-lg mb-6 font-medium text-center text-slate-300 max-w-2xl">
-                You scored {score} out of {CHALLENGES.length}. AI is getting so good that relying on your eyes and ears is no longer enough.
-              </p>
-
-              <div className="bg-slate-800 border border-slate-700 p-6 rounded-xl max-w-3xl w-full flex flex-col gap-4 shadow-xl">
-                
-                <div className="flex gap-4 items-start">
-                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-700"><Mic className="w-6 h-6 text-blue-400" /></div>
-                  <div>
-                    <strong className="block text-xl text-blue-400 mb-1">Create a "Safe Word"</strong>
-                    <p className="text-slate-300 text-sm leading-relaxed">
-                      Voice cloning is the #1 tool for scammers targeting families. Have a secret family password. If someone calls claiming to be a family member in an emergency and needing money, ask them for the safe word. If they don't know it, hang up immediately.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 items-start">
-                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-700"><ImageIcon className="w-6 h-6 text-pink-400" /></div>
-                  <div>
-                    <strong className="block text-xl text-pink-400 mb-1">Look for Glitches</strong>
-                    <p className="text-slate-300 text-sm leading-relaxed">
-                      For AI images and videos, always zoom in on hands, teeth, and background text. AI struggles with physics—shadows might go the wrong direction, text will look like a made-up language, and hands often have too many fingers.
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-
-              <button 
-                onClick={reset}
-                className="mt-8 flex items-center gap-2 px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-full font-black text-lg transition-colors hover:scale-105 transform duration-200"
-              >
-                <RefreshCcw className="w-5 h-5" />
-                Play Again
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
       </div>
     </div>
   );

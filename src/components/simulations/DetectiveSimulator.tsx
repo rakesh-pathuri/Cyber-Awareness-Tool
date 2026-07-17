@@ -14,51 +14,51 @@ const SCENARIOS: Scenario[] = [
   {
     id: 's1',
     type: 'email',
-    content: 'From: hr-update-urgent@gmail.com\nSubject: Mandatory Compliance Training\nPlease click here to complete your mandatory training before EOD or risk suspension.',
+    content: 'From: free-robux-admin@gmail.com\nSubject: Your Free Robux!\nClick here right now to claim your 10,000 Robux or your account will be deleted!',
     isSafe: false,
-    explanation: 'HR emails will come from an internal company domain, not a public Gmail account. The extreme urgency is also a red flag.'
+    explanation: 'Real game admins will never use a free Gmail address, and they never threaten to delete your account to make you hurry.'
   },
   {
     id: 's2',
     type: 'browser',
-    content: 'URL: https://www.chase.com/login\nPage says: "Welcome to Chase Online. Please enter your User ID and Password."',
+    content: 'URL: https://www.netflix.com/login\nPage says: "Welcome to Netflix. Please enter your Email and Password to watch movies."',
     isSafe: true,
-    explanation: 'The domain is correctly spelled and uses HTTPS. This is the legitimate login page.'
+    explanation: 'The website name is correct (netflix.com). This is the real login page.'
   },
   {
     id: 's3',
     type: 'sms',
-    content: 'USPS: Your package could not be delivered due to an unpaid shipping fee of $1.99. Pay here: http://usps-tracking-update.info/fee',
+    content: 'Postal Service: Your new phone delivery failed. Pay $2 for delivery here: http://post-office-delivery-fake.net',
     isSafe: false,
-    explanation: 'USPS does not send text messages with links asking for money. The URL is also a fake look-alike domain.'
+    explanation: 'The post office doesn\'t text you asking for money, and the link looks completely fake!'
   },
   {
     id: 's4',
     type: 'email',
-    content: 'From: netflix-support@netflix.com\nSubject: Payment Failed\nYour last payment failed. Please update your billing information at https://netflix.com/account/billing',
+    content: 'From: roblox-support@roblox.com\nSubject: Password Reset\nSomeone tried to log into your account. If this wasn\'t you, reset your password here: https://roblox.com/reset',
     isSafe: true,
-    explanation: 'The sender domain matches the official service, and the link points directly to the legitimate domain.'
+    explanation: 'The sender email is really from roblox.com and the link goes to the real website.'
   },
   {
     id: 's5',
     type: 'browser',
-    content: 'URL: http://secure-portal.paypal.com.verify-user.net/\nPage says: "Verify your identity to unlock your account restrictions."',
+    content: 'URL: http://free-vbucks.fortnite.com.fake-scam-site.net/\nPage says: "Enter your Epic Games password to get your V-Bucks."',
     isSafe: false,
-    explanation: 'The actual domain here is "verify-user.net", not "paypal.com". Scammers use subdomains to trick you into thinking you are on the real site.'
+    explanation: 'The real website is at the END of the link (\'fake-scam-site.net\'), not \'fortnite.com\'. This is a trick!'
   },
   {
     id: 's6',
     type: 'sms',
-    content: 'Hey this is Sarah from marketing. I dropped my phone in water and this is my new number. Can you send me the Q3 financial report ASAP?',
+    content: 'Hey it\'s your friend Alex. I dropped my phone in the toilet. Can you text me your Netflix password so I can watch a movie?',
     isSafe: false,
-    explanation: 'This is a spear-phishing attempt. Never send sensitive data to an unverified number, even if they claim to be a coworker.'
+    explanation: 'Hackers pretend to be your friends using new phone numbers. Never send passwords over text!'
   },
   {
     id: 's7',
     type: 'email',
-    content: 'From: IT-Helpdesk@yourcompany.com\nSubject: Scheduled Maintenance Notification\nServers will be down from 2AM to 4AM on Sunday for routine patching. No action required.',
+    content: 'From: teacher@yourschool.edu\nSubject: Homework for Tomorrow\nPlease read chapter 4 for tomorrow\'s class. No reply needed.',
     isSafe: true,
-    explanation: 'Informational emails from official internal domains that do not ask for passwords or clicks are generally safe.'
+    explanation: 'Emails from real school addresses that don\'t ask for passwords or have weird links are usually safe.'
   }
 ];
 
@@ -115,9 +115,9 @@ export default function DetectiveSimulator() {
   const getRank = () => {
     const accuracy = history.length > 0 ? (history.filter(h => h.correct).length / history.length) * 100 : 0;
     if (score === SCENARIOS.length * 100) return 'Master Detective';
-    if (score >= 400 && accuracy >= 80) return 'Senior Analyst';
-    if (score > 0) return 'Rookie Investigator';
-    return 'Civilian';
+    if (score >= 400 && accuracy >= 80) return 'Smart Scout';
+    if (score > 0) return 'Beginner Sleuth';
+    return 'Easy Target';
   };
 
   return (
@@ -127,7 +127,7 @@ export default function DetectiveSimulator() {
       <div className="h-14 bg-slate-950 border-b border-slate-800 flex items-center px-6 justify-between shrink-0">
         <div className="flex items-center gap-3">
           <Shield className="w-6 h-6 text-blue-500" />
-          <span className="font-black text-xl tracking-widest text-white">CYBER DETECTIVE</span>
+          <span className="font-black text-xl tracking-widest text-white">SCAM DETECTIVE</span>
         </div>
         
         {gameState === 'playing' && (
@@ -159,10 +159,9 @@ export default function DetectiveSimulator() {
               <div className="w-24 h-24 bg-blue-900/30 rounded-full flex items-center justify-center mb-6 border border-blue-500/50">
                 <ShieldAlert className="w-12 h-12 text-blue-400" />
               </div>
-              <h2 className="text-4xl font-black text-white mb-4">RAPID FIRE ANALYSIS</h2>
+              <h2 className="text-4xl font-black text-white mb-4">SPEED ROUND</h2>
               <p className="text-slate-300 max-w-lg mb-8 text-lg">
-                You have 60 seconds to classify as many scenarios as possible. 
-                Incorrect answers incur a 5-second time penalty. Trust your training.
+                You have 60 seconds to spot the scams! Get it wrong and you lose 5 seconds. Trust your instincts!
               </p>
               <button 
                 onClick={startGame}
@@ -243,7 +242,7 @@ export default function DetectiveSimulator() {
 
                 {/* Right Panel: History */}
                 <div className="w-2/3 flex flex-col h-full">
-                  <h3 className="text-xl font-black text-white mb-4">Debriefing Report</h3>
+                  <h3 className="text-xl font-black text-white mb-4">How You Did</h3>
                   <div className="flex-1 overflow-y-auto space-y-3 pr-2">
                     {history.map((h, i) => (
                       <div key={i} className={`p-4 rounded-xl border ${h.correct ? 'bg-green-900/10 border-green-500/30' : 'bg-red-900/10 border-red-500/30'}`}>

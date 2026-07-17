@@ -179,7 +179,7 @@ export default function RansomwareSimulator() {
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[13px] font-bold uppercase tracking-wider flex items-center">
-                  <Skull className="w-4 h-4 mr-2" /> Encrypting Files...
+                  <Skull className="w-4 h-4 mr-2" /> Locking Files...
                 </span>
                 <span className="text-[13px] font-mono">{progress}%</span>
               </div>
@@ -198,13 +198,13 @@ export default function RansomwareSimulator() {
               exit={{ opacity: 0, scale: 0.95 }}
             >
               <Skull className="w-16 h-16 mb-4 text-white drop-shadow-md" />
-              <h3 className="text-[28px] font-bold mb-2 tracking-tight">OOPS, YOUR FILES HAVE BEEN ENCRYPTED!</h3>
+              <h3 className="text-[28px] font-bold mb-2 tracking-tight">OOPS, YOUR FILES ARE LOCKED!</h3>
               <div className="bg-black/30 p-4 rounded-lg w-full mb-6">
                 <p className="text-[13px] text-white/90 leading-relaxed mb-3">
-                  All your photos, documents, and games have been encrypted with military-grade encryption. You cannot access them.
+                  A hacker has put a digital lock on all your photos, homework, and games. You cannot open them anymore.
                 </p>
                 <p className="text-[13px] text-white font-bold">
-                  Send $500 in Bitcoin within 24 hours or your files will be deleted forever.
+                  Send $500 in Bitcoin right now or your files will be deleted forever!
                 </p>
               </div>
             </motion.div>
@@ -220,7 +220,7 @@ export default function RansomwareSimulator() {
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[13px] font-bold uppercase tracking-wider flex items-center">
-                  <Cloud className="w-4 h-4 mr-2" /> Restoring from Cloud Backup...
+                  <Cloud className="w-4 h-4 mr-2" /> Getting Files from Cloud Backup...
                 </span>
                 <span className="text-[13px] font-mono">{progress}%</span>
               </div>
@@ -241,7 +241,7 @@ export default function RansomwareSimulator() {
               <ShieldCheck className="w-16 h-16 mb-4" />
               <h3 className="text-[28px] font-bold mb-2">Disaster Averted!</h3>
               <p className="text-[14px] text-white/90 mb-6">
-                Because you had a backup, the ransomware lost all its power. You wiped the computer and restored your files for free.
+                Because you saved a backup copy in the cloud, the hacker's lock was useless! You got all your files back for free.
               </p>
               <button 
                 onClick={reset}
@@ -258,13 +258,13 @@ export default function RansomwareSimulator() {
       <div className="flex-1 max-w-md flex flex-col justify-center">
         
         <div className="mb-6">
-          <h2 className="text-[32px] font-semibold tracking-tight text-[#1d1d1f] mb-3">Ransomware Simulator</h2>
+          <h2 className="text-[32px] font-semibold tracking-tight text-[#1d1d1f] mb-3">Digital Lock (Ransomware)</h2>
           <p className="text-[16px] leading-relaxed text-[#86868b]">
             {status === 'safe' && 'Click the sketchy download link on the left to see what a ransomware infection looks like in real time.'}
-            {status === 'encrypting' && 'Ransomware acts like a digital padlock, scrambling your files so they cannot be opened.'}
-            {status === 'extortion' && 'You are locked out. They want your money. But there is a secret weapon against ransomware...'}
-            {status === 'restoring' && 'Wiping the hard drive and restoring clean files from the cloud...'}
-            {status === 'restored' && 'Backups are the ultimate defense against digital extortion!'}
+            {status === 'encrypting' && 'Ransomware acts like a giant digital padlock, locking up all your games and pictures so you can\'t open them.'}
+            {status === 'extortion' && 'The hacker locked you out and wants your money! But wait, you have a secret weapon...'}
+            {status === 'restoring' && 'Wiping the computer clean and bringing back your safe copies from the cloud...'}
+            {status === 'restored' && 'Cloud backups are the ultimate superpower against hackers!'}
           </p>
         </div>
 

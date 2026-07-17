@@ -13,63 +13,63 @@ type QuizQuestion = {
 const QUESTIONS: QuizQuestion[] = [
   {
     id: 1,
-    question: "You receive an email from 'IT Support' saying your account will be deleted in 24 hours unless you click a link to verify your password. What should you do?",
+    question: "You get an email saying your game account will be deleted if you don't click a link right now. What should you do?",
     options: [
       "Click the link and quickly verify your password to save your account.",
       "Reply to the email and ask if it's real.",
-      "Ignore the email and directly contact your IT department using their known phone number or official portal.",
+      "Don't click! Tell a parent or teacher to help you check if it's real.",
       "Forward it to all your coworkers to warn them."
     ],
     correctAnswerIndex: 2,
-    explanation: "This is a classic phishing attempt using extreme urgency. Never click the link. Always verify directly through official channels."
+    explanation: "Hackers try to scare you so you act fast. Never click strange links!"
   },
   {
     id: 2,
-    question: "Which of the following makes a strong, secure password?",
+    question: "What makes a super strong password?",
     options: [
       "Your pet's name followed by '123' (e.g., Fluffy123).",
       "A short, easy-to-remember word.",
-      "A long passphrase (12+ characters) that combines unexpected words, numbers, and symbols.",
+      "A long secret phrase with weird words, numbers, and symbols (like PurpleMonkey45!).",
       "The same password you use for your Netflix account."
     ],
     correctAnswerIndex: 2,
-    explanation: "Length is the most important factor in password security. Using a long, unique passphrase with mixed characters is the best defense."
+    explanation: "Long passwords are the hardest for hacker robots to guess!"
   },
   {
     id: 3,
-    question: "You are at a coffee shop and see an open Wi-Fi network called 'Free_Coffee_Shop_WiFi'. Is it safe to log into your bank account on this network?",
+    question: "You see a free Wi-Fi at a cafe. Should you log into your game on it?",
     options: [
       "Yes, as long as the coffee shop looks legitimate.",
       "Yes, if the website has a padlock icon.",
-      "No, open public networks are easily intercepted by attackers. You should use a VPN or cellular data instead.",
+      "No way! Hackers on the same Wi-Fi can see your passwords.",
       "No, because coffee shop Wi-Fi is usually too slow."
     ],
     correctAnswerIndex: 2,
-    explanation: "Open, unencrypted Wi-Fi networks can be sniffed by attackers on the same network. Never access sensitive accounts without a VPN on public Wi-Fi."
+    explanation: "Open Wi-Fi is like shouting your secrets in a crowded room. Use a Magic Tunnel (VPN) if you have to use it!"
   },
   {
     id: 4,
-    question: "You receive a frantic voicemail from your 'grandson' saying he is in jail and needs you to wire $5,000 immediately for bail. His voice sounds exactly like him. What is the most likely scenario?",
+    question: "You hear a video online of someone famous saying they are giving away free stuff. Their voice sounds super real. What is it?",
     options: [
-      "He is actually in jail and needs your help.",
-      "It is a prank call from his friends.",
-      "It is an AI voice cloning scam. Scammers cloned his voice from a social media video.",
-      "The phone company made a mistake connecting the call."
+      "They are actually giving away free stuff.",
+      "It is just a prank video.",
+      "It's an AI fake! Hackers used a computer to copy their voice.",
+      "The video is a mistake."
     ],
     correctAnswerIndex: 2,
-    explanation: "AI voice cloning is cheap and easy. Scammers only need a few seconds of audio to fake a voice. Always use a family 'Safe Word' to verify."
+    explanation: "Computers can easily fake voices and faces now. Don't believe everything you see or hear online!"
   },
   {
     id: 5,
-    question: "What does the padlock icon next to a website URL actually mean?",
+    question: "What does the little lock icon next to a website name mean?",
     options: [
       "The website is 100% safe and trustworthy.",
       "The website cannot have viruses.",
-      "Your connection to the website is encrypted and private from eavesdroppers.",
+      "Your messages to the website are locked in a safe.",
       "The website is owned by a verified company."
     ],
     correctAnswerIndex: 2,
-    explanation: "The padlock only means the connection is encrypted (HTTPS). Scammers can easily get a padlock for their fake, malicious websites."
+    explanation: "The lock just means your messages are hidden, but fake hacker websites can have locks too!"
   }
 ];
 
@@ -117,7 +117,7 @@ export default function QuizSimulator() {
       <div className="h-14 bg-slate-950 border-b border-slate-800 flex items-center px-6 justify-between shrink-0">
         <div className="flex items-center gap-3">
           <GraduationCap className="w-6 h-6 text-emerald-500" />
-          <span className="font-black text-xl tracking-widest text-white">FINAL ASSESSMENT</span>
+          <span className="font-black text-xl tracking-widest text-white">FINAL QUIZ</span>
         </div>
         {!isFinished && (
           <div className="text-sm font-bold text-slate-400">
@@ -212,7 +212,7 @@ export default function QuizSimulator() {
                 </div>
               </div>
 
-              <h1 className="text-4xl font-black text-white mb-2">CERTIFICATE OF COMPLETION</h1>
+              <h1 className="text-4xl font-black text-white mb-2">YOU BEAT THE HACKERS!</h1>
               <p className="text-xl text-slate-400 mb-8">Cyber Awareness Tool</p>
 
               <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full mb-8 flex justify-center items-center gap-8 shadow-xl">
@@ -224,15 +224,15 @@ export default function QuizSimulator() {
                 <div className="text-left">
                   <div className="flex items-center gap-2 text-emerald-400 mb-2">
                     <ShieldCheck className="w-5 h-5" />
-                    <span className="font-bold">Zero Trust</span>
+                    <span className="font-bold">Trust No Stranger</span>
                   </div>
                   <div className="flex items-center gap-2 text-emerald-400 mb-2">
                     <ShieldCheck className="w-5 h-5" />
-                    <span className="font-bold">Verify First</span>
+                    <span className="font-bold">Think Before Clicking</span>
                   </div>
                   <div className="flex items-center gap-2 text-emerald-400">
                     <ShieldCheck className="w-5 h-5" />
-                    <span className="font-bold">Stay Secure</span>
+                    <span className="font-bold">Keep Secrets Safe</span>
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export default function QuizSimulator() {
                 onClick={reset}
                 className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-bold"
               >
-                <RefreshCcw className="w-4 h-4" /> Retake Assessment
+                <RefreshCcw className="w-4 h-4" /> Play Again
               </button>
 
             </motion.div>

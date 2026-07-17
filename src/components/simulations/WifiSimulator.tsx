@@ -43,14 +43,14 @@ export default function WifiSimulator() {
         id: Math.random().toString(36).substr(2, 9),
         time: timeString,
         isEncrypted: true,
-        rawData: `[VPN_TUNNEL_TCP] payload: ${generateEncryptedPayload()}`
+        rawData: `[MAGIC_TUNNEL] Locked message: ${generateEncryptedPayload()}`
       };
     } else {
       newPacket = {
         id: Math.random().toString(36).substr(2, 9),
         time: timeString,
         isEncrypted: false,
-        rawData: `[HTTP_POST] /api/v1/auth credentials: username="${username}" password="${password}"`
+        rawData: `[SHOUTING] I am logging in! My username="${username}" password="${password}"`
       };
     }
 
@@ -89,7 +89,7 @@ export default function WifiSimulator() {
               <Wifi className="w-4 h-4 text-orange-500" />
               Connected to: "Starbucks_Guest"
             </h3>
-            <p className="text-[11px] text-gray-500 mt-0.5">Unsecured Public Network</p>
+            <p className="text-[11px] text-gray-500 mt-0.5">Open Wi-Fi (No Password)</p>
           </div>
 
           <div className="p-4 flex flex-col gap-4">
@@ -100,9 +100,9 @@ export default function WifiSimulator() {
                 <div className="flex items-center gap-2">
                   <Shield className={`w-6 h-6 ${vpnEnabled ? 'text-white' : 'text-gray-400'}`} />
                   <div>
-                    <h4 className={`text-[15px] font-bold ${vpnEnabled ? 'text-white' : 'text-gray-800'}`}>Secure VPN</h4>
+                    <h4 className={`text-[15px] font-bold ${vpnEnabled ? 'text-white' : 'text-gray-800'}`}>Magic Tunnel (VPN)</h4>
                     <p className={`text-[11px] ${vpnEnabled ? 'text-blue-200' : 'text-gray-500'}`}>
-                      {vpnEnabled ? 'Your connection is encrypted' : 'Your connection is exposed'}
+                      {vpnEnabled ? 'Your secrets are locked in a safe' : 'Everyone can see your secrets!'}
                     </p>
                   </div>
                 </div>
@@ -205,7 +205,7 @@ export default function WifiSimulator() {
                   transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
                 />
               </div>
-              <p className="text-[12px] font-bold text-blue-600 uppercase mt-3 tracking-widest text-center">Encrypted<br/>Tunnel</p>
+              <p className="text-[12px] font-bold text-blue-600 uppercase mt-3 tracking-widest text-center">Magic<br/>Tunnel</p>
             </motion.div>
           ) : (
             <motion.div 
@@ -226,7 +226,7 @@ export default function WifiSimulator() {
                   </motion.div>
                 ))}
               </div>
-              <p className="text-[12px] font-bold text-red-600 uppercase mt-4 tracking-widest text-center">Plaintext<br/>Broadcast</p>
+              <p className="text-[12px] font-bold text-red-600 uppercase mt-4 tracking-widest text-center">Shouting to<br/>Everyone</p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -237,7 +237,7 @@ export default function WifiSimulator() {
         <div className="bg-[#111] px-4 py-3 border-b border-gray-800 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Terminal className="w-4 h-4 text-gray-400" />
-            <span className="text-[12px] font-bold uppercase tracking-widest text-gray-300">Packet Sniffer [wlan0]</span>
+            <span className="text-[12px] font-bold uppercase tracking-widest text-gray-300">Hacker's Wi-Fi Antenna</span>
           </div>
           <div className="flex items-center gap-2 text-[11px] text-green-500">
             <Activity className="w-3 h-3 animate-pulse" />
@@ -248,9 +248,9 @@ export default function WifiSimulator() {
         <div className="flex-1 p-4 overflow-y-auto bg-[#0a0a0a] text-[12px] leading-relaxed break-all relative">
           
           <div className="text-gray-500 mb-4">
-            Starting packet capture on interface wlan0...<br/>
-            Listening for HTTP traffic on port 80/443...<br/>
-            Awaiting transmission...<br/>
+            Turning on Hacker Antenna...<br/>
+            Listening to everyone at Starbucks...<br/>
+            Waiting for someone to type a password...<br/>
             ==================================================
           </div>
 
@@ -271,7 +271,7 @@ export default function WifiSimulator() {
                     <span>{packet.time}</span>
                     <span className="flex items-center gap-1">
                       {packet.isEncrypted ? <Lock className="w-3 h-3" /> : <Unlock className="w-3 h-3" />}
-                      {packet.isEncrypted ? 'ENCRYPTED' : 'PLAINTEXT'}
+                      {packet.isEncrypted ? 'LOCKED' : 'UNLOCKED (DANGER!)'}
                     </span>
                   </div>
                   <div className="mt-2 font-bold tracking-tight">

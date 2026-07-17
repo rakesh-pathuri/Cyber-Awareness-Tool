@@ -18,7 +18,7 @@ export default function EscapeRoomSimulator() {
 
   const handleUrlSelect = (url: string) => {
     setSelectedUrl(url);
-    if (url === 'http://secure-login.bank.com') {
+    if (url === 'https://www.netf1ix.com/login') {
       setTimeout(() => {
         setStage(2);
       }, 1500);
@@ -86,17 +86,16 @@ export default function EscapeRoomSimulator() {
                 <div className="absolute -inset-2 border-2 border-red-500/50 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
               </div>
               
-              <h2 className="text-3xl font-black text-white mb-4">SYSTEM LOCKED</h2>
+              <h2 className="text-3xl font-black text-white mb-4">GAME OVER!</h2>
               <p className="text-slate-400 text-center max-w-lg mb-8">
-                You are trapped inside the mainframe. To escape, you must solve three cybersecurity puzzles to acquire the access keys. 
-                Work together with your class to crack the codes.
+                Oh no! Hacker robots locked you inside the computer! To escape, you need to solve three puzzles to find the secret keys. Let's go!
               </p>
               
               <button 
                 onClick={startEscape}
                 className="bg-red-600 hover:bg-red-500 text-white px-10 py-4 rounded-xl font-black text-xl tracking-widest shadow-[0_0_15px_rgba(220,38,38,0.5)] transition-all hover:scale-105 active:scale-95"
               >
-                INITIATE ESCAPE SEQUENCE
+                START THE ESCAPE!
               </button>
             </motion.div>
           )}
@@ -111,16 +110,16 @@ export default function EscapeRoomSimulator() {
               className="absolute inset-0 flex flex-col p-6"
             >
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-black text-yellow-500 mb-2">PUZZLE 1: The Phisher's Hook</h3>
-                <p className="text-slate-300">Identify the <span className="font-bold text-red-400">FAKE</span> URL to extract the first key.</p>
+                <h3 className="text-2xl font-black text-yellow-500 mb-2">PUZZLE 1: Spot the Fake Link</h3>
+                <p className="text-slate-300">Find the <span className="font-bold text-red-400">FAKE</span> web address to get the first key.</p>
               </div>
 
               <div className="flex-1 flex flex-col items-center justify-center gap-4 max-w-2xl mx-auto w-full">
                 {[
-                  { url: 'https://www.bank-login-secure.com', isFake: true },
-                  { url: 'http://secure-login.bank.com', isFake: true }, // The trick one! HTTP instead of HTTPS
-                  { url: 'https://login.banc.com', isFake: true },
-                  { url: 'https://secure.bank.com/login', isFake: false }
+                  { url: 'https://www.netflix.com/login', isFake: false },
+                  { url: 'https://www.youtube.com/watch', isFake: false },
+                  { url: 'https://www.netf1ix.com/login', isFake: true }, // The trick one!
+                  { url: 'https://www.roblox.com/home', isFake: false }
                 ].map((item, idx) => (
                   <button
                     key={idx}
@@ -128,21 +127,21 @@ export default function EscapeRoomSimulator() {
                     disabled={selectedUrl !== null}
                     className={`w-full p-4 rounded-xl border-2 text-left font-mono text-lg transition-all ${
                       selectedUrl === item.url 
-                        ? (item.url === 'http://secure-login.bank.com' ? 'border-green-500 bg-green-900/30 text-green-400' : 'border-red-500 bg-red-900/30 text-red-400')
+                        ? (item.isFake ? 'border-green-500 bg-green-900/30 text-green-400' : 'border-red-500 bg-red-900/30 text-red-400')
                         : 'border-slate-700 bg-slate-800 hover:border-slate-500 text-slate-300 hover:bg-slate-700'
                     }`}
                   >
                     {item.url}
-                    {selectedUrl === item.url && item.url === 'http://secure-login.bank.com' && (
-                      <span className="float-right text-xs text-green-400 font-sans mt-1">✓ Correct (HTTP is not secure)</span>
+                    {selectedUrl === item.url && item.isFake && (
+                      <span className="float-right text-xs text-green-400 font-sans mt-1">✓ Correct (It has a '1' instead of an 'l'!)</span>
                     )}
-                    {selectedUrl === item.url && item.url !== 'http://secure-login.bank.com' && (
+                    {selectedUrl === item.url && !item.isFake && (
                       <span className="float-right text-xs text-red-400 font-sans mt-1">✗ Incorrect</span>
                     )}
                   </button>
                 ))}
 
-                {selectedUrl && selectedUrl !== 'http://secure-login.bank.com' && (
+                {selectedUrl && selectedUrl !== 'https://www.netf1ix.com/login' && (
                   <button onClick={() => setSelectedUrl(null)} className="mt-4 text-slate-400 hover:text-white underline text-sm">
                     Try Again
                   </button>
@@ -161,8 +160,8 @@ export default function EscapeRoomSimulator() {
               className="absolute inset-0 flex flex-col p-6"
             >
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-black text-yellow-500 mb-2">PUZZLE 2: The Brute Force Barrier</h3>
-                <p className="text-slate-300">Construct a password strong enough to power up the terminal.</p>
+                <h3 className="text-2xl font-black text-yellow-500 mb-2">PUZZLE 2: The Super Password</h3>
+                <p className="text-slate-300">Make a password so strong that the hacker robots can't guess it!</p>
               </div>
 
               <div className="flex-1 flex flex-col items-center justify-center max-w-md mx-auto w-full">
@@ -207,8 +206,8 @@ export default function EscapeRoomSimulator() {
               className="absolute inset-0 flex flex-col p-6"
             >
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-black text-yellow-500 mb-2">PUZZLE 3: The Honeypot Trap</h3>
-                <p className="text-slate-300">Select the <span className="font-bold text-green-400">SECURE</span> network to transmit the escape sequence.</p>
+                <h3 className="text-2xl font-black text-yellow-500 mb-2">PUZZLE 3: The Wi-Fi Trap</h3>
+                <p className="text-slate-300">Pick the <span className="font-bold text-green-400">SAFE</span> Wi-Fi to send the escape message.</p>
               </div>
 
               <div className="flex-1 flex flex-col items-center justify-center gap-4 max-w-xl mx-auto w-full">
@@ -240,7 +239,7 @@ export default function EscapeRoomSimulator() {
 
                 {selectedWifi && selectedWifi !== 'Library_Guest_Secure' && (
                   <div className="mt-4 text-center">
-                    <p className="text-red-400 text-sm mb-2">Warning: Open networks can be intercepted!</p>
+                    <p className="text-red-400 text-sm mb-2">Warning: Hackers can spy on open Wi-Fi!</p>
                     <button onClick={() => setSelectedWifi(null)} className="text-slate-400 hover:text-white underline text-sm">
                       Disconnect and Try Again
                     </button>
@@ -263,9 +262,9 @@ export default function EscapeRoomSimulator() {
                 <div className="absolute -inset-2 border-2 border-green-500/50 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
               </div>
               
-              <h2 className="text-4xl font-black text-green-400 mb-4 tracking-widest text-center">SYSTEM UNLOCKED</h2>
+              <h2 className="text-4xl font-black text-green-400 mb-4 tracking-widest text-center">YOU ESCAPED!</h2>
               <p className="text-green-200/70 text-center max-w-lg mb-8 text-lg">
-                Excellent work, team! You successfully identified the phishing trap, generated a robust security key, and securely transmitted the escape sequence.
+                Awesome job! You found the fake link, made a super password, and used safe Wi-Fi to escape the hackers!
               </p>
               
               <button 
