@@ -36,8 +36,8 @@ const ScaleWrapper = ({ children }: { children: React.ReactNode }) => {
         const availableWidth = container.clientWidth;
         
         // We want to fit a 1100x550 component perfectly without scrolling.
-        const scaleY = availableHeight / 560; // 550px max height + minimal padding
-        const scaleX = availableWidth / 1120; // 1100px max width + minimal padding
+        const scaleY = (availableHeight - 60) / 550; // extra padding for height
+        const scaleX = (availableWidth - 60) / 1100; // extra padding for width
         
         // Scale to fit the container perfectly
         const newScale = Math.min(scaleX, scaleY);
@@ -51,17 +51,17 @@ const ScaleWrapper = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full h-full flex items-center justify-center overflow-hidden">
+    <div ref={containerRef} className="w-full h-full flex items-center justify-center">
       <div 
         style={{ 
-          width: 1120 * scale, 
-          height: 560 * scale,
+          width: 1100 * scale, 
+          height: 550 * scale,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center'
         }}
       >
-        <div style={{ transform: `scale(${scale})`, transformOrigin: 'center center', width: 1120, height: 560, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ transform: `scale(${scale})`, transformOrigin: 'center center', width: 1100, height: 550, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {children}
         </div>
       </div>

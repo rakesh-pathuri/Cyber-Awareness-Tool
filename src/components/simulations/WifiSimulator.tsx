@@ -73,7 +73,7 @@ export default function WifiSimulator() {
           <div className="w-32 h-6 bg-black rounded-b-2xl"></div>
         </div>
 
-        <div className="flex-1 bg-gray-50 flex flex-col pt-8 relative">
+        <div className="flex-1 bg-gray-50 flex flex-col pt-8 relative min-h-0">
           
           {/* Status Bar */}
           <div className="px-4 py-2 flex items-center justify-between text-xs text-gray-500 font-medium">
@@ -84,15 +84,16 @@ export default function WifiSimulator() {
             </div>
           </div>
 
-          <div className="bg-white px-4 py-3 border-b border-gray-200">
-            <h3 className="text-[13px] font-bold text-black flex items-center gap-1.5">
-              <Wifi className="w-4 h-4 text-orange-500" />
-              Connected to: "Starbucks_Guest"
-            </h3>
-            <p className="text-[11px] text-gray-500 mt-0.5">Open Wi-Fi (No Password)</p>
-          </div>
+          <div className="flex-1 overflow-y-auto pb-6 custom-scrollbar min-h-0">
+            <div className="bg-white px-4 py-3 border-b border-gray-200">
+              <h3 className="text-[13px] font-bold text-black flex items-center gap-1.5">
+                <Wifi className="w-4 h-4 text-orange-500" />
+                Connected to: "Starbucks_Guest"
+              </h3>
+              <p className="text-[11px] text-gray-500 mt-0.5">Open Wi-Fi (No Password)</p>
+            </div>
 
-          <div className="p-4 flex flex-col gap-4">
+            <div className="p-4 flex flex-col gap-4">
             
             {/* VPN Toggle */}
             <div className={`p-4 rounded-2xl flex flex-col gap-3 transition-colors duration-300 ${vpnEnabled ? 'bg-blue-600 shadow-lg shadow-blue-600/30' : 'bg-white border border-gray-200'}`}>
@@ -181,6 +182,7 @@ export default function WifiSimulator() {
               </AnimatePresence>
 
             </div>
+          </div>
           </div>
 
         </div>

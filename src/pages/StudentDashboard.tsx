@@ -60,8 +60,8 @@ const ScaleWrapper = ({ children, baseHeight = 560 }: { children: React.ReactNod
         const availableHeight = container.clientHeight;
         const availableWidth = container.clientWidth;
         
-        const scaleY = availableHeight / baseHeight;
-        const scaleX = availableWidth / 1120;
+        const scaleY = (availableHeight - 60) / baseHeight;
+        const scaleX = (availableWidth - 60) / 1120;
         
         const newScale = Math.min(scaleX, scaleY);
         setScale(newScale);
@@ -74,7 +74,7 @@ const ScaleWrapper = ({ children, baseHeight = 560 }: { children: React.ReactNod
   }, [baseHeight]);
 
   return (
-    <div ref={containerRef} className="w-full h-full flex items-center justify-center overflow-hidden">
+    <div ref={containerRef} className="w-full h-full flex items-center justify-center">
       <div 
         style={{ 
           width: 1120 * scale, 

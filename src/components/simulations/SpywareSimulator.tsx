@@ -88,7 +88,7 @@ export default function SpywareSimulator() {
         </div>
 
         {/* Screen Content */}
-        <div className="flex-1 bg-white relative pt-8 pb-4 flex flex-col">
+        <div className="flex-1 bg-white relative pt-8 pb-4 flex flex-col overflow-y-auto custom-scrollbar">
           
           <AnimatePresence mode="wait">
             
@@ -307,7 +307,7 @@ export default function SpywareSimulator() {
           {status === 'revoked' && 'Perfect! You stopped the spy. Never say "Allow" if an app asks for things it doesn\'t need!'}
         </p>
 
-        <div className="h-[120px] relative">
+        <div className="h-[160px] relative">
           <AnimatePresence mode="wait">
             {status === 'active' && (
               <motion.div 
