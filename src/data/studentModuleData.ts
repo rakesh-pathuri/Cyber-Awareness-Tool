@@ -21,7 +21,7 @@ export const studentCurriculum: StudentModule[] = [
     title: '0. Introduction to Cybersecurity',
     estimatedTime: '5 mins',
     componentId: 'IntroSimulator',
-    introduction: 'Welcome to the Cyber Awareness Lab! Cybersecurity is like locking your house, but for your phone, computer, and online accounts. Before we dive into specific attacks, lets understand the basics.',
+    introduction: 'Welcome to the Cyber Awareness Tool! Cybersecurity is like locking your house, but for your phone, computer, and online accounts. Before we dive into specific attacks, lets understand the basics.',
     explanation: 'There are three main pillars of cybersecurity: Privacy (keeping data secret), Integrity (keeping data accurate), and Availability (keeping data online). It is also important to understand who the attackers are. Hackers are generally classified into three types:\n\n1. Black Hat Hackers: Malicious actors who break into systems to steal data, cause damage, or extort money.\n2. White Hat Hackers: Ethical hackers hired by companies to test their security and find vulnerabilities before the bad guys do.\n3. Grey Hat Hackers: Individuals who hack without permission but usually without malicious intent, often just to see if they can or to publicly expose flaws.',
     safetyTips: [
       'Remember that you are a target. Even if you think you have nothing worth stealing, your accounts can be used to scam others.',
@@ -128,7 +128,7 @@ export const studentCurriculum: StudentModule[] = [
     title: '4. Ransomware Simulator',
     estimatedTime: '15 mins',
     componentId: 'RansomwareSimulator',
-    introduction: 'Imagine turning on your computer to find that every single file—your photos, documents, and projects—is locked, and a hacker is demanding $1,000 in Bitcoin to unlock them. This is Ransomware.',
+    introduction: 'Imagine turning on your computer to find that every single fileâ€”your photos, documents, and projectsâ€”is locked, and a hacker is demanding $1,000 in Bitcoin to unlock them. This is Ransomware.',
     explanation: 'Ransomware is a type of malicious software designed to block access to a computer system until a sum of money is paid. It encrypts your files using complex algorithms. Ransomware is typically spread through phishing emails containing malicious attachments or links, or by exploiting vulnerabilities in unpatched software. Once infected, the only guaranteed way to recover your data (without paying criminals) is to restore from an offline backup.',
     safetyTips: [
       'Maintain regular, offline backups of your most important files (e.g., on an external hard drive that is unplugged when not in use).',
@@ -173,7 +173,7 @@ export const studentCurriculum: StudentModule[] = [
           'Spyware is legal, ransomware is illegal.'
         ],
         correctAnswerIndex: 1,
-        explanation: 'The goal of spyware is stealth—the longer it stays hidden, the more data it can steal. Ransomware, conversely, relies on alerting you so you will pay the ransom.'
+        explanation: 'The goal of spyware is stealthâ€”the longer it stays hidden, the more data it can steal. Ransomware, conversely, relies on alerting you so you will pay the ransom.'
       }
     ]
   },
@@ -210,7 +210,7 @@ export const studentCurriculum: StudentModule[] = [
     estimatedTime: '10 mins',
     componentId: 'WifiSimulator',
     introduction: 'Working from a coffee shop sounds great, until you realize the person at the next table is intercepting all your network traffic. Learn why open Wi-Fi networks are inherently dangerous.',
-    explanation: 'When you connect to an open, unencrypted public Wi-Fi network, your data is transmitted over the air in cleartext. Anyone else on that network with simple software can "sniff" the traffic and intercept unencrypted data, including session cookies and passwords. Attackers can also set up "Evil Twin" hotspots—fake networks with names like "Free Starbucks WiFi" that you connect to, routing all your traffic through the attacker\'s machine.',
+    explanation: 'When you connect to an open, unencrypted public Wi-Fi network, your data is transmitted over the air in cleartext. Anyone else on that network with simple software can "sniff" the traffic and intercept unencrypted data, including session cookies and passwords. Attackers can also set up "Evil Twin" hotspotsâ€”fake networks with names like "Free Starbucks WiFi" that you connect to, routing all your traffic through the attacker\'s machine.',
     safetyTips: [
       'Avoid conducting sensitive activities (like online banking) on public Wi-Fi.',
       'Always use a Virtual Private Network (VPN) on public networks to encrypt your traffic.',
@@ -237,7 +237,7 @@ export const studentCurriculum: StudentModule[] = [
     estimatedTime: '5 mins',
     componentId: 'USBSimulator',
     introduction: 'You find a USB drive labeled "Q3 Bonuses & Salaries" in the parking lot. Do you plug it in? This module explores the physical vectors of cyber attacks.',
-    explanation: 'The "USB Drop" is a classic social engineering attack. Attackers leave infected USB drives in public places, hoping human curiosity will compel someone to plug it into a corporate computer. These drives can contain malicious files that install backdoors, or they can be "Rubber Duckies"—devices that look like USB drives but are actually programmed keyboards that inject malicious commands the millisecond they are plugged in.',
+    explanation: 'The "USB Drop" is a classic social engineering attack. Attackers leave infected USB drives in public places, hoping human curiosity will compel someone to plug it into a corporate computer. These drives can contain malicious files that install backdoors, or they can be "Rubber Duckies"â€”devices that look like USB drives but are actually programmed keyboards that inject malicious commands the millisecond they are plugged in.',
     safetyTips: [
       'Never plug an untrusted or found USB drive into your computer.',
       'If you find a USB drive at work, hand it to your IT department immediately.',
@@ -263,7 +263,7 @@ export const studentCurriculum: StudentModule[] = [
     title: '9. QR Code Scams',
     estimatedTime: '10 mins',
     componentId: 'QRSimulator',
-    introduction: 'QR codes are everywhere—on parking meters, restaurant tables, and posters. But how do you know where they actually go? Welcome to Quishing (QR Phishing).',
+    introduction: 'QR codes are everywhereâ€”on parking meters, restaurant tables, and posters. But how do you know where they actually go? Welcome to Quishing (QR Phishing).',
     explanation: 'Attackers print malicious QR codes on stickers and place them over legitimate QR codes (e.g., on a parking meter). When you scan the code to pay for parking, you are directed to a fake website that steals your credit card information. Because humans cannot read QR codes, they provide the perfect camouflage for malicious URLs.',
     safetyTips: [
       'Inspect physical QR codes carefully. Look for signs of tampering, such as a sticker placed over the original code.',
@@ -345,7 +345,7 @@ export const studentCurriculum: StudentModule[] = [
     estimatedTime: '15 mins',
     componentId: 'AIDeepfakeSimulator',
     introduction: 'Seeing is no longer believing. Generative AI makes it possible to create incredibly realistic fake images, videos, and audio. Learn how to spot synthetic media before you fall victim to a deepfake scam.',
-    explanation: 'Deepfakes use artificial intelligence to manipulate or generate visual and audio content with a high potential to deceive. Attackers use AI voice cloning to impersonate executives or family members in "emergency" phone scams. They generate fake images to spread disinformation. While the technology is improving rapidly, there are still "tells"—glitches, unnatural movements, or illogical details—that can help you spot a fake.',
+    explanation: 'Deepfakes use artificial intelligence to manipulate or generate visual and audio content with a high potential to deceive. Attackers use AI voice cloning to impersonate executives or family members in "emergency" phone scams. They generate fake images to spread disinformation. While the technology is improving rapidly, there are still "tells"â€”glitches, unnatural movements, or illogical detailsâ€”that can help you spot a fake.',
     safetyTips: [
       'Look for unnatural eye movements, weird skin textures, or mismatched audio sync in videos.',
       'In AI-generated images, look for strange hands (too many fingers), blurred backgrounds, or nonsensical text on signs.',
@@ -372,7 +372,7 @@ export const studentCurriculum: StudentModule[] = [
     estimatedTime: '20 mins',
     componentId: 'EscapeRoomSimulator',
     introduction: 'Put all your skills to the test in this interactive Escape Room. You will need to identify phishing links, construct strong passwords, and navigate network traps to break free.',
-    explanation: 'Cybersecurity requires a holistic approach. An attacker only needs one vulnerability to compromise a system—a weak password, a gullible click, or an unsecured network. Defense in Depth is the concept of using multiple layers of security so that if one fails, others are there to protect the system.',
+    explanation: 'Cybersecurity requires a holistic approach. An attacker only needs one vulnerability to compromise a systemâ€”a weak password, a gullible click, or an unsecured network. Defense in Depth is the concept of using multiple layers of security so that if one fails, others are there to protect the system.',
     safetyTips: [
       'Always maintain situational awareness when operating online.',
       'Apply the principles of Zero Trust: never trust, always verify.',
@@ -399,7 +399,7 @@ export const studentCurriculum: StudentModule[] = [
     estimatedTime: '10 mins',
     componentId: 'DetectiveSimulator',
     introduction: 'Speed and accuracy are essential when dealing with a barrage of daily threats. In this rapid-fire challenge, test your instincts by quickly classifying scenarios as Safe or Suspicious.',
-    explanation: 'As you navigate the digital world, you must develop an intuition for danger. Scammers use mass automated attacks, bombarding you with hundreds of phishing emails and smishing texts. Training your brain to instantly recognize the red flags—urgency, unexpected requests for sensitive data, and mismatched domains—will help you filter out the noise and stay safe.',
+    explanation: 'As you navigate the digital world, you must develop an intuition for danger. Scammers use mass automated attacks, bombarding you with hundreds of phishing emails and smishing texts. Training your brain to instantly recognize the red flagsâ€”urgency, unexpected requests for sensitive data, and mismatched domainsâ€”will help you filter out the noise and stay safe.',
     safetyTips: [
       'Trust your instincts; if something feels "too good to be true" or "urgent", it usually is a scam.',
       'Slow down. Attackers want you to act quickly in a panic. Take a breath before clicking.',
@@ -425,8 +425,8 @@ export const studentCurriculum: StudentModule[] = [
     title: '15. Final Quiz',
     estimatedTime: '10 mins',
     componentId: 'QuizSimulator',
-    introduction: 'You have reached the end of the Cyber Awareness Lab! It is time to prove you have mastered the golden rules of cybersecurity and earn your Certificate of Completion.',
-    explanation: 'Cybersecurity is everyone\'s responsibility. By applying the principles you have learned in these modules—using strong passwords, recognizing phishing, securing your devices, and verifying identities—you protect not only yourself, but also your family and your organization from devastating cyber attacks.',
+    introduction: 'You have reached the end of the Cyber Awareness Tool! It is time to prove you have mastered the golden rules of cybersecurity and earn your Certificate of Completion.',
+    explanation: 'Cybersecurity is everyone\'s responsibility. By applying the principles you have learned in these modulesâ€”using strong passwords, recognizing phishing, securing your devices, and verifying identitiesâ€”you protect not only yourself, but also your family and your organization from devastating cyber attacks.',
     safetyTips: [
       'Stay vigilant and continue learning, as cyber threats constantly evolve.',
       'Share your knowledge with family and friends to help keep them safe.',

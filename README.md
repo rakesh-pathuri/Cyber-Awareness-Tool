@@ -1,4 +1,4 @@
-# Cyber Awareness Lab
+# Cyber Awareness Tool
 
 [![React](https://img.shields.io/badge/Framework-React-blue)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue)](https://www.typescriptlang.org/)
@@ -12,7 +12,7 @@
 
 Nowadays, kids are getting smartphones and computers at a very young age, often without knowing about cyber threats. This leaves them vulnerable to dangers like phishing, social engineering, and malicious downloads. 
 
-I built the **Cyber Awareness Lab** to teach cyber awareness to kids aged 13-18. Reading about a phishing attack is different from seeing one. This platform provides interactive, simulated cyber threats. By participating in scenarios like spotting fake emails, creating secure passwords, or understanding ransomware, students learn how to react in real situations. 
+I built the **Cyber Awareness Tool** to teach cyber awareness to kids aged 13-18. Reading about a phishing attack is different from seeing one. This platform provides interactive, simulated cyber threats. By participating in scenarios like spotting fake emails, creating secure passwords, or understanding ransomware, students learn how to react in real situations. 
 
 The platform is optimized for landscape devices (like tablets and laptops). It includes a Student Dashboard for learning on their own, and a Teacher Dashboard for classroom presentations.
 

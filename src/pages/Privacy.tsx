@@ -32,7 +32,7 @@ export default function Privacy() {
             <section>
               <h2 className="text-[20px] font-semibold text-[#1d1d1f] mb-3">1. Information We Collect</h2>
               <p>
-                Cyber Awareness Lab is an educational platform. We do not collect personally identifiable information (PII) beyond what is strictly necessary for your session to function locally. Your progress and simulation data are stored locally on your device and are not transmitted to any external servers.
+                Cyber Awareness Tool is an educational platform. We do not collect personally identifiable information (PII) beyond what is strictly necessary for your session to function locally. Your progress and simulation data are stored locally on your device and are not transmitted to any external servers.
               </p>
             </section>
 

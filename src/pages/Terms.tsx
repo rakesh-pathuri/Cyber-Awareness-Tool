@@ -32,28 +32,28 @@ export default function Terms() {
             <section>
               <h2 className="text-[20px] font-semibold text-[#1d1d1f] mb-3">1. Acceptance of Terms</h2>
               <p>
-                By accessing and using Cyber Awareness Lab, you accept and agree to be bound by the terms and provision of this agreement. This application is provided as an educational tool for learning about cybersecurity concepts.
+                By accessing and using Cyber Awareness Tool, you accept and agree to be bound by the terms and provision of this agreement. This application is provided as an educational tool for learning about cybersecurity concepts.
               </p>
             </section>
 
             <section>
               <h2 className="text-[20px] font-semibold text-[#1d1d1f] mb-3">2. Educational Purpose</h2>
               <p>
-                Cyber Awareness Lab is designed strictly for educational and awareness purposes. The simulated attacks (e.g., phishing, ransomware) are safe environments meant to demonstrate concepts and are completely harmless to your device.
+                Cyber Awareness Tool is designed strictly for educational and awareness purposes. The simulated attacks (e.g., phishing, ransomware) are safe environments meant to demonstrate concepts and are completely harmless to your device.
               </p>
             </section>
 
             <section>
               <h2 className="text-[20px] font-semibold text-[#1d1d1f] mb-3">3. User Responsibility</h2>
               <p>
-                You agree to use the knowledge gained from this application responsibly and ethically. The creators of Cyber Awareness Lab are not responsible for any misuse of the information provided within the platform.
+                You agree to use the knowledge gained from this application responsibly and ethically. The creators of Cyber Awareness Tool are not responsible for any misuse of the information provided within the platform.
               </p>
             </section>
 
             <section>
               <h2 className="text-[20px] font-semibold text-[#1d1d1f] mb-3">4. Warranty Disclaimer</h2>
               <p>
-                This application is provided "as is" without any representations or warranties, express or implied. Cyber Awareness Lab makes no representations or warranties in relation to this application or the educational information provided.
+                This application is provided "as is" without any representations or warranties, express or implied. Cyber Awareness Tool makes no representations or warranties in relation to this application or the educational information provided.
               </p>
             </section>
           </div>

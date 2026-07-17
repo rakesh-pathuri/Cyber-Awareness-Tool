@@ -92,7 +92,7 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center mb-16 border-b border-black/5 pb-12 text-center">
             <div className="flex items-center space-x-2 text-[14px] font-semibold tracking-tight mb-4">
               <img src="/logo.jpg" alt="CAL Logo" className="w-8 h-8 rounded-md object-contain shadow-sm border border-black/5" />
-              <span className="text-[#1d1d1f] tracking-tight text-lg">Cyber Awareness Lab</span>
+              <span className="text-[#1d1d1f] tracking-tight text-lg">Cyber Awareness Tool</span>
             </div>
             <p className="text-[14px] text-[#86868b] max-w-sm leading-relaxed font-medium">
               Explore interactive simulations and modules to build your cyber awareness.
@@ -102,7 +102,7 @@ export default function Home() {
           {/* Giant Subtle Typography */}
           <div className="w-full flex justify-center items-center overflow-hidden py-2 select-none">
             <h1 className="text-[9vw] md:text-[7vw] leading-none font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#1d1d1f]/10 to-transparent" style={{ WebkitTextStroke: '1px rgba(0,0,0,0.05)' }}>
-              CYBER AWARENESS LAB
+              CYBER AWARENESS TOOL
             </h1>
           </div>
 

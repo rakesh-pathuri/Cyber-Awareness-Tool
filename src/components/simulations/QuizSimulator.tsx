@@ -213,7 +213,7 @@ export default function QuizSimulator() {
               </div>
 
               <h1 className="text-4xl font-black text-white mb-2">CERTIFICATE OF COMPLETION</h1>
-              <p className="text-xl text-slate-400 mb-8">Cyber Awareness Lab</p>
+              <p className="text-xl text-slate-400 mb-8">Cyber Awareness Tool</p>
 
               <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full mb-8 flex justify-center items-center gap-8 shadow-xl">
                 <div className="text-center">
