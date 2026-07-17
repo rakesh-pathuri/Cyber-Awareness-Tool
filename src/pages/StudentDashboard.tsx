@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Shield, PlayCircle, Clock, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { BookOpen, Clock, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { studentCurriculum, type StudentModule } from '../data/studentModuleData';
 
 // Import Simulators
@@ -99,6 +99,7 @@ export default function StudentDashboard() {
   const [currentStep, setCurrentStep] = useState<ModuleStep>('intro');
   const [quizSelectedOption, setQuizSelectedOption] = useState<number | null>(null);
   const [quizScore, setQuizScore] = useState<number | null>(null);
+  const [shuffledMiniQuizOptions, setShuffledMiniQuizOptions] = useState<{option: string, originalIndex: number}[]>([]);
 
   const handleModuleSelect = (mod: StudentModule) => {
     setActiveModule(mod);
@@ -106,6 +107,15 @@ export default function StudentDashboard() {
     setCurrentStep('intro');
     setQuizSelectedOption(null);
     setQuizScore(null);
+    
+    if (mod.miniQuiz && mod.miniQuiz.length > 0) {
+      const originalOptions = mod.miniQuiz[0].options;
+      const optionsWithIndices = originalOptions.map((opt, idx) => ({ option: opt, originalIndex: idx }));
+      const shuffled = optionsWithIndices.sort(() => Math.random() - 0.5);
+      setShuffledMiniQuizOptions(shuffled);
+    } else {
+      setShuffledMiniQuizOptions([]);
+    }
   };
 
   const handleBackToGrid = () => {
@@ -132,7 +142,8 @@ export default function StudentDashboard() {
   const handleQuizSelect = (idx: number) => {
     setQuizSelectedOption(idx);
     if (activeModule) {
-      const isCorrect = idx === activeModule.miniQuiz[0].correctAnswerIndex;
+      const selectedItem = shuffledMiniQuizOptions[idx];
+      const isCorrect = selectedItem.originalIndex === activeModule.miniQuiz[0].correctAnswerIndex;
       setQuizScore(isCorrect ? 1 : 0);
     }
   };
@@ -201,8 +212,8 @@ export default function StudentDashboard() {
   return (
     <div className="fixed inset-0 overflow-hidden bg-[#f5f5f7] text-[#1d1d1f] font-sans flex flex-col selection:bg-blue-500/30">
       
-      <header className="h-16 bg-white border-b border-black/5 flex flex-row items-center px-4 shrink-0 z-50">
-        <div className="flex items-center gap-3 flex-1">
+      <header className="h-16 bg-white border-b border-black/5 flex flex-row items-center justify-between px-4 shrink-0 z-50">
+        <div className="flex items-center gap-3">
           <button 
             onClick={handleBackToGrid}
             className="w-10 h-10 rounded-full hover:bg-[#f5f5f7] flex items-center justify-center text-[#86868b] hover:text-[#0066cc] transition-colors"
@@ -214,6 +225,9 @@ export default function StudentDashboard() {
             <img src="/logo.jpg" alt="CAL Logo" className="w-6 h-6 rounded-md object-contain shadow-sm border border-black/5" />
             <span className="text-[#1d1d1f]">| {t('home.title')}</span>
           </div>
+        </div>
+        <div className="text-[14px] font-semibold text-[#86868b] hidden sm:block pr-4">
+          {activeModule.title}
         </div>
       </header>
 
@@ -231,9 +245,6 @@ export default function StudentDashboard() {
             >
               <div className="min-h-full w-full flex flex-col items-center justify-center p-6 md:p-12">
                 <div className="max-w-3xl mx-auto w-full bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/[0.02]">
-                  <div className="w-16 h-16 bg-[#f5f5f7] rounded-2xl flex items-center justify-center mb-8 border border-black/5">
-                    <BookOpen className="w-8 h-8 text-[#0066cc]" />
-                  </div>
                   <h2 className="text-[32px] font-semibold text-[#1d1d1f] tracking-tight mb-6">Introduction</h2>
                   <div className="prose prose-lg max-w-none text-[#1d1d1f] font-medium leading-relaxed">
                     <p>{activeModule.introduction}</p>
@@ -275,9 +286,6 @@ export default function StudentDashboard() {
             >
               <div className="min-h-full w-full flex flex-col items-center justify-center p-6 md:p-12">
                 <div className="max-w-3xl mx-auto w-full bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/[0.02]">
-                  <div className="w-16 h-16 bg-[#f5f5f7] rounded-2xl flex items-center justify-center mb-8 border border-black/5">
-                    <PlayCircle className="w-8 h-8 text-purple-600" />
-                  </div>
                   <h2 className="text-[32px] font-semibold text-[#1d1d1f] tracking-tight mb-6">How It Works</h2>
                   <div className="prose prose-lg max-w-none text-[#1d1d1f] font-medium leading-relaxed">
                     <p className="whitespace-pre-wrap">{activeModule.explanation}</p>
@@ -298,9 +306,6 @@ export default function StudentDashboard() {
             >
               <div className="min-h-full w-full flex flex-col items-center justify-center p-6 md:p-12">
                 <div className="max-w-3xl mx-auto w-full bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/[0.02]">
-                  <div className="w-16 h-16 bg-[#f5f5f7] rounded-2xl flex items-center justify-center mb-8 border border-black/5">
-                    <Shield className="w-8 h-8 text-emerald-600" />
-                  </div>
                   <h2 className="text-[32px] font-semibold text-[#1d1d1f] tracking-tight mb-6">Key Takeaways</h2>
                   <ul className="space-y-4">
                     {activeModule.safetyTips.map((tip, idx) => (
@@ -336,8 +341,8 @@ export default function StudentDashboard() {
                   </div>
 
                   <div className="space-y-3 mb-8">
-                    {activeModule.miniQuiz[0].options.map((opt, idx) => {
-                      const isCorrect = idx === activeModule.miniQuiz[0].correctAnswerIndex;
+                    {shuffledMiniQuizOptions.map((item, idx) => {
+                      const isCorrect = item.originalIndex === activeModule.miniQuiz[0].correctAnswerIndex;
                       const isSelected = idx === quizSelectedOption;
                       let styleClass = "bg-[#f5f5f7] border-black/5 hover:border-black/20 text-[#1d1d1f]";
                       
@@ -354,7 +359,7 @@ export default function StudentDashboard() {
                           disabled={quizScore !== null}
                           className={`w-full text-left p-5 rounded-2xl border transition-all flex justify-between items-center font-medium ${styleClass}`}
                         >
-                          <span className="text-[17px]">{opt}</span>
+                          <span className="text-[17px]">{item.option}</span>
                           {quizScore !== null && isCorrect && <CheckCircle2 className="w-6 h-6 text-emerald-600" />}
                         </button>
                       )

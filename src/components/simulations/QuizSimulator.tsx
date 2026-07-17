@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GraduationCap, CheckCircle2, XCircle, Award, RefreshCcw, ShieldCheck, ChevronRight } from 'lucide-react';
 
@@ -74,13 +74,29 @@ const QUESTIONS: QuizQuestion[] = [
 ];
 
 export default function QuizSimulator() {
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [showAnswer, setShowAnswer] = useState(false);
   const [score, setScore] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
 
-  const currentQuestion = QUESTIONS[currentQuestionIdx];
+  const initQuiz = () => {
+    const shuffled = QUESTIONS.map(q => {
+      const correctOption = q.options[q.correctAnswerIndex];
+      const newOptions = [...q.options].sort(() => Math.random() - 0.5);
+      const newCorrectIndex = newOptions.indexOf(correctOption);
+      return { ...q, options: newOptions, correctAnswerIndex: newCorrectIndex };
+    }).sort(() => Math.random() - 0.5);
+    setShuffledQuestions(shuffled);
+  };
+
+  useEffect(() => {
+    initQuiz();
+  }, []);
+
+  if (shuffledQuestions.length === 0) return null;
+  const currentQuestion = shuffledQuestions[currentQuestionIdx];
 
   const handleSelect = (idx: number) => {
     if (showAnswer) return;
@@ -108,6 +124,7 @@ export default function QuizSimulator() {
     setShowAnswer(false);
     setScore(0);
     setIsFinished(false);
+    initQuiz();
   };
 
   return (
