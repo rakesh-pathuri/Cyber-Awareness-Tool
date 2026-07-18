@@ -57,6 +57,19 @@ The platform contains two main user experiences powered by a shared library of i
 - **Multilingual Support (i18n)**: Built-in internationalization for broader accessibility.
 - **Rich Animations**: Powered by Framer Motion for a premium, engaging user experience.
 
+## 📸 Platform Previews
+
+<div align="center">
+  <img src="./public/screenshots/teacher_phishing.png" width="800" alt="Teacher Dashboard - Phishing Simulator" style="border-radius: 8px; margin-bottom: 10px;" />
+  <br/>
+  <i>Teacher Dashboard - Presentation Mode (Phishing Simulator)</i>
+  <br/><br/>
+  <img src="./public/screenshots/wifi_sim.png" width="400" alt="Wifi Simulator" style="border-radius: 8px; margin-right: 10px;" />
+  <img src="./public/screenshots/spyware_sim.png" width="400" alt="Spyware Simulator" style="border-radius: 8px;" />
+  <br/>
+  <i>Interactive Threat Simulations (Wifi & Spyware)</i>
+</div>
+
 ## Technologies Used
 
 - **Framework**: React 18 + TypeScript
