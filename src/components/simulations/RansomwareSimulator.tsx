@@ -114,7 +114,7 @@ export default function RansomwareSimulator() {
   };
 
   return (
-    <div className="w-full max-w-[1100px] mx-auto flex flex-row items-center justify-center gap-10 h-full scale-105 md:scale-110 lg:scale-[1.15] origin-center">
+    <div className="w-[1100px] shrink-0 mx-auto flex flex-row items-center justify-center gap-10 h-full scale-105 md:scale-110 lg:scale-[1.15] origin-center">
       
       {/* Left Sidebar: The Trap */}
       <div className="flex-shrink-0 w-[240px]">

@@ -78,7 +78,7 @@ export default function SpywareSimulator() {
   };
 
   return (
-    <div className="w-full max-w-[1100px] mx-auto flex flex-row items-center justify-center gap-10 h-full">
+    <div className="w-[1100px] shrink-0 mx-auto flex flex-row items-center justify-center gap-10 h-full">
       
       {/* Left Column: Fake Smartphone */}
       <div className="w-[300px] shrink-0 h-[550px] bg-black rounded-[40px] border-[12px] border-black relative overflow-hidden shadow-2xl flex flex-col">

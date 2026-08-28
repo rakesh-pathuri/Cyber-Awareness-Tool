@@ -207,7 +207,7 @@ export default function AIDeepfakeSimulator() {
   );
 
   return (
-    <div className="w-full max-w-[1100px] mx-auto min-h-[600px] flex flex-col font-sans text-gray-900 relative">
+    <div className="w-[1100px] shrink-0 mx-auto min-h-[600px] flex flex-col font-sans text-gray-900 relative">
       <div className="flex-1 relative">
         <AnimatePresence mode="wait">
           <motion.div

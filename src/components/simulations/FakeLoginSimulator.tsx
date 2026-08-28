@@ -152,7 +152,7 @@ export default function FakeLoginSimulator() {
   };
 
   return (
-    <div className="w-full max-w-[1100px] mx-auto flex flex-col h-full items-center">
+    <div className="w-[1100px] shrink-0 mx-auto flex flex-col h-full items-center">
       
       <div className="mb-6 text-center shrink-0">
         <h2 className="text-[32px] font-semibold tracking-tight text-[#1d1d1f] mb-2">Spot the Fake!</h2>

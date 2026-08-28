@@ -139,7 +139,7 @@ export default function DigitalFootprintSimulator() {
   );
 
   const renderCloud = () => (
-    <div className="flex flex-col min-h-[500px] max-w-4xl mx-auto py-12">
+    <div className="flex flex-col min-h-[500px] w-[900px] shrink-0 mx-auto py-12">
       <div className="text-center mb-10">
         <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center">
           <Cloud className="w-6 h-6 text-blue-500 mr-2" /> The Giant Copy Machine
@@ -203,7 +203,7 @@ export default function DigitalFootprintSimulator() {
   );
 
   const renderDelete = () => (
-    <div className="flex flex-col min-h-[500px] max-w-4xl mx-auto py-12">
+    <div className="flex flex-col min-h-[500px] w-[900px] shrink-0 mx-auto py-12">
       <div className="text-center mb-10">
         <h3 className="text-2xl font-bold text-gray-900 flex items-center justify-center">
           <Trash2 className="w-6 h-6 text-red-500 mr-2" /> "Deleting" the Photo
@@ -310,7 +310,7 @@ export default function DigitalFootprintSimulator() {
   );
 
   return (
-    <div className="w-full max-w-[1100px] mx-auto min-h-[600px] relative flex flex-col">
+    <div className="w-[1100px] shrink-0 mx-auto min-h-[600px] relative flex flex-col">
       <div className="relative flex-1 flex flex-col z-10">
         <AnimatePresence mode="wait">
           <motion.div
