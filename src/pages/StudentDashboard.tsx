@@ -160,8 +160,7 @@ export default function StudentDashboard() {
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              <img src="/logo.jpg" alt="CAL Logo" className="w-8 h-8 rounded-md object-contain shadow-sm border border-black/5" />
-              <span className="text-[19px] font-semibold tracking-tight">| {t('home.title')}</span>
+              <img src="/logo.jpg" alt="CAL Logo" className="w-8 h-8 object-contain" />
             </div>
             <div className="flex items-center gap-4 text-[13px] font-medium text-[#86868b]">
               <div className="flex items-center gap-1.5"><Library className="w-4 h-4" /> {studentCurriculum.length} Modules</div>
@@ -172,7 +171,7 @@ export default function StudentDashboard() {
 
         <main className="max-w-7xl mx-auto px-6 py-12">
           <div className="mb-12 text-center max-w-2xl mx-auto">
-            <h1 className="text-[40px] leading-tight font-semibold text-[#1d1d1f] tracking-tight mb-4">{t('home.title')} - {t('home.student_mode')}</h1>
+            <h1 className="text-[40px] leading-tight font-semibold text-[#1d1d1f] tracking-tight mb-4">{t('home.student_mode')}</h1>
             <p className="text-[19px] text-[#86868b] font-medium">{t('home.student_desc')}</p>
           </div>
 

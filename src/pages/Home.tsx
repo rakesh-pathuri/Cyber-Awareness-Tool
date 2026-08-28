@@ -12,20 +12,19 @@ export default function Home() {
       
       {/* Global Header / Nav */}
       <div className="fixed top-0 w-full h-12 bg-white/80 backdrop-blur-md border-b border-black/5 flex items-center justify-between px-8 z-50">
-        <div className="flex items-center space-x-2 text-[14px] font-semibold tracking-tight">
-          <img src="/logo.png" alt="CAT Logo" className="w-6 h-6 rounded-md object-contain shadow-sm border border-black/5" />
-          <span className="text-[#86868b]">| {t('home.title')}</span>
+        <div className="flex items-center text-[14px] font-semibold tracking-tight">
+          <img src="/logo.png" alt="CAT Logo" className="w-6 h-6 object-contain" />
         </div>
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col items-center justify-center py-20 px-6">
+      <div className="flex-1 flex flex-col items-center justify-center py-10 px-6 mt-12">
         {/* Hero Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-3xl mb-12"
+          className="text-center max-w-3xl mb-8"
         >
           <h1 className="text-[48px] leading-[1.05] font-semibold tracking-tight mb-3 text-[#1d1d1f]">
             {t('home.title')}
