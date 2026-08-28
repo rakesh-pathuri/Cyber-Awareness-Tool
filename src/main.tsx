@@ -30,6 +30,10 @@ import './i18n/i18n'
 import './index.css'
 import App from './App.tsx'
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
