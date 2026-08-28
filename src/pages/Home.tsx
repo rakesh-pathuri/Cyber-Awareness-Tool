@@ -9,13 +9,13 @@ export default function Home() {
 
   return (
     <div className="w-full min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f] font-sans flex flex-col selection:bg-blue-500/30">
-      
+
 
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col items-center justify-center py-8 px-6 -mt-4">
         {/* Hero Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -88,9 +88,6 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-12">
             {/* The Mission */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0066cc] mb-6">
-                <Target className="w-8 h-8" strokeWidth={1.5} />
-              </div>
               <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">The Mission</h3>
               <p className="text-[15px] text-[#86868b] leading-relaxed">
                 To replace boring lectures with interactive experiences. This community initiative provides a free, safe environment to help students recognize phishing, scams, and digital red flags.
@@ -99,21 +96,15 @@ export default function Home() {
 
             {/* Who It's For */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0066cc] mb-6">
-                <Users className="w-8 h-8" strokeWidth={1.5} />
-              </div>
               <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">Who It's For</h3>
               <p className="text-[15px] text-[#86868b] leading-relaxed">
                 Designed specifically for schools and educational institutions. The platform allows students to safely experience simulated threats in real-time, building digital awareness without requiring any technical background.
               </p>
             </div>
 
-            {/* The Lab */}
+            {/* The Tool */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0066cc] mb-6">
-                <ShieldCheck className="w-8 h-8" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">The Cyber Awareness Lab</h3>
+              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">The Cyber Awareness Tool</h3>
               <p className="text-[15px] text-[#86868b] leading-relaxed">
                 A custom-built, risk-free ecosystem packed with simulations. From fake social media logins to AI deepfakes, students become aware of real-world tricks simply by experiencing them.
               </p>
@@ -125,20 +116,19 @@ export default function Home() {
       {/* Actual Minimalist Footer */}
       <footer className="w-full bg-[#fcfcfc] border-t border-black/5 relative overflow-hidden mt-auto">
         {/* Minimalist Grid Pattern */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.02]" 
-             style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="absolute inset-0 pointer-events-none opacity-[0.02]"
+          style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
         <div className="max-w-6xl mx-auto w-full px-8 py-12 relative z-10">
-          
+
           <div className="w-full flex justify-center items-center overflow-hidden py-4 select-none">
             <h1 className="text-[9vw] md:text-[7vw] leading-none font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#1d1d1f]/10 to-transparent" style={{ WebkitTextStroke: '1px rgba(0,0,0,0.05)' }}>
-              CYBER AWARENESS
+              CYBER AWARENESS TOOL
             </h1>
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-[12px] text-[#86868b] font-medium border-t border-black/5 pt-8">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <img src="/logo.png" alt="CAT Logo" className="w-5 h-5 object-contain opacity-50 grayscale" />
               <p>© {new Date().getFullYear()} Rakesh Pathuri. All rights reserved.</p>
             </div>
             <div className="flex gap-6">
