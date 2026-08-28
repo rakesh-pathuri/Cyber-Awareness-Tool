@@ -67,7 +67,7 @@ export const MobileBlocker = () => {
             <img 
               src="/logo.png" 
               alt="CAT Logo" 
-              className="w-24 h-24 rounded-2xl object-contain shadow-md border border-black/5 bg-white p-2" 
+              className="w-24 h-24 object-contain" 
             />
           </div>
           
