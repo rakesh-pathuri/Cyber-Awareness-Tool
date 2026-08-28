@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Presentation, GraduationCap, ChevronRight } from 'lucide-react';
+import { Presentation, GraduationCap, ChevronRight, ShieldCheck, Target, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
@@ -75,37 +75,75 @@ export default function Home() {
         </div>
       </div>
 
+      {/* About & Mission Section */}
+      <div className="w-full bg-white border-t border-black/5 py-24 px-6 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-[32px] font-semibold tracking-tight text-[#1d1d1f] mb-4">Fostering Cybersecurity Resilience</h2>
+            <p className="text-[19px] text-[#86868b] max-w-3xl mx-auto font-medium leading-relaxed">
+              Equipping individuals and organizations with the practical skills required to navigate and mitigate modern digital threats through experiential learning.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* Mission & Vision */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0066cc] mb-6">
+                <Target className="w-8 h-8" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">Mission & Vision</h3>
+              <p className="text-[15px] text-[#86868b] leading-relaxed">
+                To close the critical gap between theoretical cybersecurity awareness and practical defensive capabilities. We provide a structured, risk-free environment where concepts are transformed into actionable skills.
+              </p>
+            </div>
+
+            {/* Target Audience */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0066cc] mb-6">
+                <Users className="w-8 h-8" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">Target Audience</h3>
+              <p className="text-[15px] text-[#86868b] leading-relaxed">
+                Tailored for educational institutions, corporate training programs, and individual learners seeking to elevate their security posture. Our modules accommodate varying levels of technical proficiency.
+              </p>
+            </div>
+
+            {/* Platform Architecture */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0066cc] mb-6">
+                <ShieldCheck className="w-8 h-8" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">Platform Capabilities</h3>
+              <p className="text-[15px] text-[#86868b] leading-relaxed">
+                A comprehensive simulation ecosystem designed to replicate sophisticated attack vectors—from social engineering to deepfakes—enabling users to develop proactive defensive strategies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Actual Minimalist Footer */}
       <footer className="w-full bg-[#fcfcfc] border-t border-black/5 relative overflow-hidden mt-auto">
-        
         {/* Minimalist Grid Pattern */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.02]" 
              style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-        <div className="max-w-6xl mx-auto w-full px-8 py-16 relative z-10">
+        <div className="max-w-6xl mx-auto w-full px-8 py-12 relative z-10">
           
-          <div className="flex flex-col items-center justify-center mb-16 border-b border-black/5 pb-12 text-center">
-            <div className="flex items-center space-x-2 text-[14px] font-semibold tracking-tight mb-4">
-              <img src="/logo.png" alt="CAT Logo" className="w-8 h-8 rounded-md object-contain shadow-sm border border-black/5" />
-              <span className="text-[#1d1d1f] tracking-tight text-lg">Cyber Awareness Tool</span>
-            </div>
-            <p className="text-[14px] text-[#86868b] max-w-sm leading-relaxed font-medium">
-              Explore interactive simulations and modules to build your cyber awareness.
-            </p>
-          </div>
-
-          {/* Giant Subtle Typography */}
-          <div className="w-full flex justify-center items-center overflow-hidden py-2 select-none">
+          <div className="w-full flex justify-center items-center overflow-hidden py-4 select-none">
             <h1 className="text-[9vw] md:text-[7vw] leading-none font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#1d1d1f]/10 to-transparent" style={{ WebkitTextStroke: '1px rgba(0,0,0,0.05)' }}>
-              CYBER AWARENESS TOOL
+              CYBER AWARENESS
             </h1>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-[12px] text-[#86868b] font-medium">
-            <p>© {new Date().getFullYear()} Rakesh Pathuri. All rights reserved.</p>
-            <div className="flex gap-4 mt-4 md:mt-0">
-              <a onClick={() => navigate('/privacy')} className="cursor-pointer hover:text-[#1d1d1f] transition-colors">Privacy</a>
-              <a onClick={() => navigate('/terms')} className="cursor-pointer hover:text-[#1d1d1f] transition-colors">Terms</a>
+          <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-[12px] text-[#86868b] font-medium border-t border-black/5 pt-8">
+            <div className="flex items-center gap-2 mb-4 md:mb-0">
+              <img src="/logo.png" alt="CAT Logo" className="w-5 h-5 object-contain opacity-50 grayscale" />
+              <p>© {new Date().getFullYear()} Rakesh Pathuri. All rights reserved.</p>
+            </div>
+            <div className="flex gap-6">
+              <a onClick={() => navigate('/privacy')} className="cursor-pointer hover:text-[#1d1d1f] transition-colors">Privacy Policy</a>
+              <a onClick={() => navigate('/terms')} className="cursor-pointer hover:text-[#1d1d1f] transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
