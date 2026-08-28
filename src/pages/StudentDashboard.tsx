@@ -161,6 +161,7 @@ export default function StudentDashboard() {
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <img src="/logo.jpg" alt="CAL Logo" className="w-8 h-8 object-contain" />
+              <span className="text-[19px] font-semibold tracking-tight text-[#1d1d1f]">| {t('home.title')}</span>
             </div>
             <div className="flex items-center gap-4 text-[13px] font-medium text-[#86868b]">
               <div className="flex items-center gap-1.5"><Library className="w-4 h-4" /> {studentCurriculum.length} Modules</div>
