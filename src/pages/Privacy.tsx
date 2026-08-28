@@ -27,7 +27,7 @@ export default function Privacy() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex flex-col items-center justify-center mb-12 text-center">
-            <img src="/logo.png" alt="CAT Logo" className="w-16 h-16 rounded-xl object-contain shadow-sm border border-black/5 mb-6" />
+            <img src="/logo.png" alt="CAT Logo" className="w-24 h-24 object-contain mb-6" />
             <h1 className="text-[40px] font-semibold tracking-tight">Privacy Policy</h1>
           </div>
           
