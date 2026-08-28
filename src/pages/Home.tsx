@@ -13,7 +13,7 @@ export default function Home() {
 
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col items-center justify-center py-8 px-6 -mt-12">
+      <div className="flex-1 flex flex-col items-center justify-center py-8 px-6 -mt-4">
         {/* Hero Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
