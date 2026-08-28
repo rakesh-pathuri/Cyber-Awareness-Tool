@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Presentation, GraduationCap, ChevronRight, ShieldCheck, Target, Users } from 'lucide-react';
+import { Presentation, GraduationCap, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
