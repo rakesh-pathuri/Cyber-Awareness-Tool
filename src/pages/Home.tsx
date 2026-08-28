@@ -79,43 +79,43 @@ export default function Home() {
       <div className="w-full bg-white border-t border-black/5 py-24 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-[32px] font-semibold tracking-tight text-[#1d1d1f] mb-4">Fostering Cybersecurity Resilience</h2>
+            <h2 className="text-[32px] font-semibold tracking-tight text-[#1d1d1f] mb-4">Empowering Students for a Safer Digital Future</h2>
             <p className="text-[19px] text-[#86868b] max-w-3xl mx-auto font-medium leading-relaxed">
-              Equipping individuals and organizations with the practical skills required to navigate and mitigate modern digital threats through experiential learning.
+              Raising awareness among the next generation to identify modern digital threats and stay safe online through gamified, interactive simulations.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
-            {/* Mission & Vision */}
+            {/* The Mission */}
             <div className="flex flex-col items-center text-center">
               <div className="w-16 h-16 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0066cc] mb-6">
                 <Target className="w-8 h-8" strokeWidth={1.5} />
               </div>
-              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">Mission & Vision</h3>
+              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">The Mission</h3>
               <p className="text-[15px] text-[#86868b] leading-relaxed">
-                To close the critical gap between theoretical cybersecurity awareness and practical defensive capabilities. We provide a structured, risk-free environment where concepts are transformed into actionable skills.
+                To replace boring lectures with interactive experiences. This community initiative provides a free, safe environment to help students recognize phishing, scams, and digital red flags.
               </p>
             </div>
 
-            {/* Target Audience */}
+            {/* Who It's For */}
             <div className="flex flex-col items-center text-center">
               <div className="w-16 h-16 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0066cc] mb-6">
                 <Users className="w-8 h-8" strokeWidth={1.5} />
               </div>
-              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">Target Audience</h3>
+              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">Who It's For</h3>
               <p className="text-[15px] text-[#86868b] leading-relaxed">
-                Tailored for educational institutions, corporate training programs, and individual learners seeking to elevate their security posture. Our modules accommodate varying levels of technical proficiency.
+                Designed specifically for schools and educational institutions. The platform allows students to safely experience simulated threats in real-time, building digital awareness without requiring any technical background.
               </p>
             </div>
 
-            {/* Platform Architecture */}
+            {/* The Lab */}
             <div className="flex flex-col items-center text-center">
               <div className="w-16 h-16 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0066cc] mb-6">
                 <ShieldCheck className="w-8 h-8" strokeWidth={1.5} />
               </div>
-              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">Platform Capabilities</h3>
+              <h3 className="text-[20px] font-semibold tracking-tight mb-3 text-[#1d1d1f]">The Cyber Awareness Lab</h3>
               <p className="text-[15px] text-[#86868b] leading-relaxed">
-                A comprehensive simulation ecosystem designed to replicate sophisticated attack vectors—from social engineering to deepfakes—enabling users to develop proactive defensive strategies.
+                A custom-built, risk-free ecosystem packed with simulations. From fake social media logins to AI deepfakes, students become aware of real-world tricks simply by experiencing them.
               </p>
             </div>
           </div>
