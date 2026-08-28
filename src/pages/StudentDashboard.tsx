@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Clock, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Library, Clock, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { studentCurriculum, type StudentModule } from '../data/studentModuleData';
 
 // Import Simulators
@@ -164,8 +164,8 @@ export default function StudentDashboard() {
               <span className="text-[19px] font-semibold tracking-tight">| {t('home.title')}</span>
             </div>
             <div className="flex items-center gap-4 text-[13px] font-medium text-[#86868b]">
-              <div className="flex items-center gap-1.5"><BookOpen className="w-4 h-4" /> {studentCurriculum.length} Modules</div>
-              <div className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> ~45 Mins</div>
+              <div className="flex items-center gap-1.5"><Library className="w-4 h-4" /> {studentCurriculum.length} Modules</div>
+              <div className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> ~3 Hours</div>
             </div>
           </div>
         </header>
@@ -195,7 +195,7 @@ export default function StudentDashboard() {
                     <Clock className="w-3 h-3" /> {mod.estimatedTime}
                   </div>
                 </div>
-                <h3 className="text-[20px] font-semibold text-[#1d1d1f] mb-2 leading-tight group-hover:text-[#0066cc] transition-colors tracking-tight">{mod.title}</h3>
+                <h3 className="text-[20px] font-semibold text-[#1d1d1f] mb-2 leading-tight group-hover:text-[#0066cc] transition-colors tracking-tight">{mod.title.replace(/^\d+\.\s*/, '')}</h3>
                 <p className="text-[15px] text-[#86868b] line-clamp-3 mt-auto leading-relaxed font-medium">
                   {mod.introduction}
                 </p>

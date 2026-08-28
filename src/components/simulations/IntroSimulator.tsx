@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Lock, Eye, AlertTriangle } from 'lucide-react';
+import { Lock } from 'lucide-react';
 
 export default function IntroSimulator() {
   return (
@@ -17,12 +17,9 @@ export default function IntroSimulator() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-[#f5f5f7] border border-black/5 p-6 rounded-2xl flex flex-col items-center text-center"
+          className="bg-[#f5f5f7] border-t-4 border-t-red-500 p-6 rounded-b-2xl rounded-t flex flex-col text-left"
         >
-          <div className="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mb-4 shadow-sm">
-            <AlertTriangle className="w-8 h-8" />
-          </div>
-          <h3 className="text-[20px] font-semibold text-[#1d1d1f] mb-2 tracking-tight">The Bad Hackers (Black Hat)</h3>
+          <h3 className="text-[20px] font-semibold text-[#1d1d1f] mb-3 tracking-tight">The Bad Hackers (Black Hat)</h3>
           <p className="text-[#86868b] text-[15px] font-medium leading-relaxed">
             These are the bad guys. They break into games and accounts to steal things, ruin games, or be mean.
           </p>
@@ -33,12 +30,9 @@ export default function IntroSimulator() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-[#f5f5f7] border border-black/5 p-6 rounded-2xl flex flex-col items-center text-center"
+          className="bg-[#f5f5f7] border-t-4 border-t-emerald-500 p-6 rounded-b-2xl rounded-t flex flex-col text-left"
         >
-          <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4 shadow-sm">
-            <Shield className="w-8 h-8" />
-          </div>
-          <h3 className="text-[20px] font-semibold text-[#1d1d1f] mb-2 tracking-tight">The Good Hackers (White Hat)</h3>
+          <h3 className="text-[20px] font-semibold text-[#1d1d1f] mb-3 tracking-tight">The Good Hackers (White Hat)</h3>
           <p className="text-[#86868b] text-[15px] font-medium leading-relaxed">
             These are the good guys! They work for game companies to find holes and fix them before the bad hackers get in.
           </p>
@@ -49,12 +43,9 @@ export default function IntroSimulator() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="bg-[#f5f5f7] border border-black/5 p-6 rounded-2xl flex flex-col items-center text-center"
+          className="bg-[#f5f5f7] border-t-4 border-t-[#0066cc] p-6 rounded-b-2xl rounded-t flex flex-col text-left"
         >
-          <div className="w-16 h-16 bg-blue-100 text-[#0066cc] rounded-full flex items-center justify-center mb-4 shadow-sm">
-            <Eye className="w-8 h-8" />
-          </div>
-          <h3 className="text-[20px] font-semibold text-[#1d1d1f] mb-2 tracking-tight">The Show-Offs (Grey Hat)</h3>
+          <h3 className="text-[20px] font-semibold text-[#1d1d1f] mb-3 tracking-tight">The Show-Offs (Grey Hat)</h3>
           <p className="text-[#86868b] text-[15px] font-medium leading-relaxed">
             They break into places just to show off that they can, but they usually don't steal anything.
           </p>

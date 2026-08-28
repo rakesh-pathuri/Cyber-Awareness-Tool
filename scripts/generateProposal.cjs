@@ -3,7 +3,7 @@ const { Document, Packer, Paragraph, TextRun, ImageRun, HeadingLevel, AlignmentT
 const path = require('path');
 
 async function createProposal() {
-  const logoPath = path.join(__dirname, '..', 'public', 'logo.jpg');
+  const logoPath = path.join(__dirname, '..', 'public', 'logo.png');
   const logoBuffer = fs.readFileSync(logoPath);
 
   const doc = new Document({

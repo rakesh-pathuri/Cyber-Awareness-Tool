@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, BookOpen, Presentation, CheckCircle, Info, Star, PlayCircle, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Library, Presentation, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
 import { curriculum } from '../data/curriculum';
 import PasswordSimulator from '../components/simulations/PasswordSimulator';
 import PhishingSimulator from '../components/simulations/PhishingSimulator';
@@ -80,12 +80,12 @@ export default function TeacherDashboard() {
   const currentModuleIndex = curriculum.findIndex(item => item.id === activeId);
   const activeItem = curriculum[currentModuleIndex] || curriculum[0];
 
-  const renderBulletList = (title: string, items: string[] | undefined, icon: React.ReactNode, colorClass: string) => {
+  const renderBulletList = (title: string, items: string[] | undefined, colorClass: string) => {
     if (!items || items.length === 0) return null;
     return (
       <section className="mb-8">
         <h3 className={`text-[13px] uppercase tracking-wider font-bold mb-3 flex items-center ${colorClass}`}>
-          {icon} <span className="ml-2">{title}</span>
+          {title}
         </h3>
         <ul className="space-y-3">
           {items.map((item, idx) => (
@@ -99,7 +99,7 @@ export default function TeacherDashboard() {
     );
   };
 
-  const handleNextSlide = () => {
+  const handleNextSlide = React.useCallback(() => {
     if (transitioningTo) return;
     if (slideIndex < (activeItem.slides?.length || 0) - 1) {
       setSlideIndex(prev => prev + 1);
@@ -112,9 +112,9 @@ export default function TeacherDashboard() {
         setTransitioningTo(null);
       }, 1500);
     }
-  };
+  }, [transitioningTo, slideIndex, activeItem, currentModuleIndex]);
 
-  const handlePrevSlide = () => {
+  const handlePrevSlide = React.useCallback(() => {
     if (transitioningTo) return;
     if (slideIndex > 0) {
       setSlideIndex(prev => prev - 1);
@@ -127,7 +127,21 @@ export default function TeacherDashboard() {
         setTransitioningTo(null);
       }, 1500);
     }
-  };
+  }, [transitioningTo, slideIndex, currentModuleIndex]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (viewMode !== 'presentation') return;
+      if (e.key === 'ArrowRight') {
+        handleNextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        handlePrevSlide();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [viewMode, handleNextSlide, handlePrevSlide]);
 
   const renderPresentationMode = () => {
     const slides = activeItem.slides || [];
@@ -170,7 +184,7 @@ export default function TeacherDashboard() {
                 viewMode === 'preparation' ? 'bg-white shadow-sm text-[#1d1d1f]' : 'text-[#86868b] hover:text-[#1d1d1f]'
               }`}
             >
-              <BookOpen className="w-4 h-4 mr-2" /> Preparation Mode
+              <Library className="w-4 h-4 mr-2" /> Preparation Mode
             </button>
             <button
               onClick={() => setViewMode('presentation')}
@@ -183,13 +197,31 @@ export default function TeacherDashboard() {
           </div>
           <div className="flex items-center space-x-2 text-[14px] font-semibold tracking-tight">
             <span className="text-[#1d1d1f]">{t('home.title')} |</span>
-            <img src="/logo.jpg" alt="CAL Logo" className="w-6 h-6 rounded-md object-contain shadow-sm border border-black/5" />
+            <img src="/logo.png" alt="CAL Logo" className="w-6 h-6 rounded-md object-contain shadow-sm border border-black/5" />
           </div>
         </header>
 
         {/* Slideshow Content Area - STRICTLY CONFINED */}
-        <main className="flex-1 relative overflow-hidden flex flex-col items-center justify-center p-4 min-h-0 z-10">
+        <main className="flex-1 relative overflow-hidden flex flex-col items-center justify-center p-4 min-h-0 z-10 group">
           
+          {/* Clickable Navigation Zones */}
+          <div 
+            className="absolute left-0 top-0 bottom-0 w-[15vw] z-[60] cursor-pointer flex items-center justify-start px-8 opacity-0 hover:opacity-100 transition-opacity"
+            onClick={handlePrevSlide}
+          >
+            <div className="bg-white/80 backdrop-blur-sm p-4 rounded-full shadow-lg border border-black/5 text-[#1d1d1f]">
+              <ChevronLeft className="w-8 h-8" />
+            </div>
+          </div>
+          <div 
+            className="absolute right-0 top-0 bottom-0 w-[15vw] z-[60] cursor-pointer flex items-center justify-end px-8 opacity-0 hover:opacity-100 transition-opacity"
+            onClick={handleNextSlide}
+          >
+            <div className="bg-white/80 backdrop-blur-sm p-4 rounded-full shadow-lg border border-black/5 text-[#1d1d1f]">
+              <ChevronRight className="w-8 h-8" />
+            </div>
+          </div>
+
           {/* Module Transition Overlay */}
           <AnimatePresence>
             {transitioningTo && (
@@ -217,13 +249,54 @@ export default function TeacherDashboard() {
             >
               <ScaleWrapper>
                 {currentSlide.type === 'visual' && (
-                  <div className="bg-white rounded-3xl p-16 shadow-sm border border-black/5 max-w-4xl w-full text-center">
-                    <h2 className="text-[56px] font-semibold tracking-tight mb-8 text-[#1d1d1f] leading-tight">
-                      {currentSlide.title}
-                    </h2>
-                    <p className="text-[28px] leading-relaxed text-[#86868b] font-medium whitespace-pre-wrap">
-                      {currentSlide.content}
-                    </p>
+                  <div className="bg-white rounded-[32px] p-16 shadow-[0_12px_48px_rgb(0,0,0,0.06)] border border-black/[0.04] w-[1050px] h-[500px] flex flex-col justify-center items-center text-center relative overflow-hidden">
+                    {/* Subtle decorative background accents */}
+                    <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-[#0066cc]/[0.03] to-transparent rounded-bl-full pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#34c759]/[0.03] to-transparent rounded-tr-full pointer-events-none" />
+                    
+                    <div className="relative z-10 w-full max-w-[900px] flex flex-col items-center">
+                      <h2 className="text-[52px] font-semibold tracking-tight mb-6 text-[#1d1d1f] leading-[1.1]">
+                        {currentSlide.title}
+                      </h2>
+                      <div className="w-20 h-1.5 bg-gradient-to-r from-[#0066cc] to-[#34c759] mx-auto mb-8 rounded-full opacity-90" />
+                      
+                      <div className="text-[26px] leading-[1.6] text-[#86868b] font-medium w-full max-h-[300px] overflow-y-auto hide-scrollbar px-4">
+                        {(currentSlide.content || '').split('\n').map((line, i) => {
+                          const formatBold = (text: string) => {
+                            return text.split(/(\*\*.*?\*\*)/g).map((part, j) => {
+                              if (part.startsWith('**') && part.endsWith('**')) {
+                                return <strong key={j} className="text-[#1d1d1f] font-bold">{part.slice(2, -2)}</strong>;
+                              }
+                              return part;
+                            });
+                          };
+
+                          if (line.trim().startsWith('•')) {
+                            return (
+                              <div key={i} className="flex items-start text-left my-2 mx-auto max-w-[800px]">
+                                <span className="text-[#0066cc] mr-4 mt-1.5 text-[24px] font-bold">•</span>
+                                <span className="flex-1">{formatBold(line.replace('•', '').trim())}</span>
+                              </div>
+                            );
+                          }
+                          
+                          if (line.trim().startsWith('Example:')) {
+                            return (
+                              <div key={i} className="bg-[#f5f5f7] rounded-2xl p-5 my-5 text-left border-l-[6px] border-[#34c759] mx-auto max-w-[800px]">
+                                <span className="font-bold text-[#1d1d1f] mr-3 uppercase tracking-wider text-[18px]">Example:</span>
+                                <span className="text-[24px] italic">{formatBold(line.replace('Example:', '').trim())}</span>
+                              </div>
+                            );
+                          }
+                          
+                          return line.trim() ? (
+                            <p key={i} className="mb-4 text-center">
+                              {formatBold(line)}
+                            </p>
+                          ) : null;
+                        })}
+                      </div>
+                    </div>
                   </div>
                 )}
 
@@ -332,7 +405,7 @@ export default function TeacherDashboard() {
                 : 'text-[#86868b] hover:text-[#1d1d1f]'
             }`}
           >
-            <BookOpen className="w-4 h-4 mr-2" /> Preparation Mode
+            <Library className="w-4 h-4 mr-2" /> Preparation Mode
           </button>
           <button
             onClick={() => setViewMode('presentation')}
@@ -348,7 +421,7 @@ export default function TeacherDashboard() {
 
         <div className="flex items-center space-x-2 text-[14px] font-semibold tracking-tight">
           <span className="text-[#1d1d1f]">{t('home.title')} |</span>
-          <img src="/logo.jpg" alt="CAL Logo" className="w-6 h-6 rounded-md object-contain shadow-sm border border-black/5" />
+          <img src="/logo.png" alt="CAL Logo" className="w-6 h-6 rounded-md object-contain shadow-sm border border-black/5" />
         </div>
       </div>
 
@@ -367,7 +440,7 @@ export default function TeacherDashboard() {
             >
               <div className="p-6">
                 <h2 className="text-[11px] uppercase tracking-wider text-[#86868b] font-bold mb-3 flex items-center">
-                  <BookOpen className="w-3 h-3 mr-2" /> Educational Modules
+                  <Library className="w-3 h-3 mr-2" /> Educational Modules
                 </h2>
                 <div className="space-y-1 mb-8">
                   {curriculum.map((item) => (
@@ -401,21 +474,21 @@ export default function TeacherDashboard() {
                     </p>
                   </div>
                   {activeItem.duration && (
-                    <div className="bg-[#f5f5f7] px-4 py-1.5 rounded-full text-[13px] font-semibold text-[#86868b]">
-                      ⏱ {activeItem.duration}
+                    <div className="bg-[#f5f5f7] px-4 py-1.5 rounded-full text-[13px] font-semibold text-[#86868b] flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5" /> {activeItem.duration}
                     </div>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  {renderBulletList('Start With', activeItem.content.start, <PlayCircle className="w-4 h-4"/>, 'text-[#ff9500]')}
-                  {renderBulletList('Teach', activeItem.content.teach, <Info className="w-4 h-4"/>, 'text-[#0066cc]')}
-                  {renderBulletList('Discuss', activeItem.content.discuss, <Users className="w-4 h-4"/>, 'text-[#af52de]')}
-                  {renderBulletList('Explain', activeItem.content.explain, <BookOpen className="w-4 h-4"/>, 'text-[#34c759]')}
-                  {renderBulletList('Show', activeItem.content.show, <Presentation className="w-4 h-4"/>, 'text-[#ff3b30]')}
-                  {renderBulletList('Golden Rule', activeItem.content.goldenRule, <Star className="w-4 h-4"/>, 'text-[#ffcc00]')}
-                  {renderBulletList('Activity', activeItem.content.activity, <CheckCircle className="w-4 h-4"/>, 'text-[#ff2d55]')}
-                  {renderBulletList('Questions', activeItem.content.questions, <Info className="w-4 h-4"/>, 'text-[#5856d6]')}
+                  {renderBulletList('Start With', activeItem.content.start, 'text-[#ff9500]')}
+                  {renderBulletList('Teach', activeItem.content.teach, 'text-[#0066cc]')}
+                  {renderBulletList('Discuss', activeItem.content.discuss, 'text-[#af52de]')}
+                  {renderBulletList('Explain', activeItem.content.explain, 'text-[#34c759]')}
+                  {renderBulletList('Show', activeItem.content.show, 'text-[#ff3b30]')}
+                  {renderBulletList('Golden Rule', activeItem.content.goldenRule, 'text-[#ffcc00]')}
+                  {renderBulletList('Activity', activeItem.content.activity, 'text-[#ff2d55]')}
+                  {renderBulletList('Questions', activeItem.content.questions, 'text-[#5856d6]')}
                 </div>
               </div>
             </div>

@@ -7,10 +7,15 @@ import StudentDashboard from './pages/StudentDashboard';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 
+import { MobileBlocker } from './components/MobileBlocker';
+import { ScrollToTop } from './components/ScrollToTop';
+
 function App() {
   return (
     <TeacherSessionProvider>
+      <MobileBlocker />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/student" element={<StudentDashboard />} />

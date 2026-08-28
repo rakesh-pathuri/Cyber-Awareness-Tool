@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BrainCircuit, Image as ImageIcon, Sparkles, UserCircle, ShieldCheck, ChevronRight, Eye, AlertTriangle, Lock, Video } from 'lucide-react';
+import { Bot, Image as ImageIcon, Sparkles, UserCircle, ShieldCheck, ChevronRight, Eye, AlertTriangle, Lock, Video } from 'lucide-react';
 
 type Phase = 'intro' | 'what-is-ai' | 'what-is-deepfake' | 'demo' | 'safety';
 
@@ -10,9 +10,6 @@ export default function AIDeepfakeSimulator() {
 
   const renderIntro = () => (
     <div className="flex flex-col items-center justify-center min-h-[500px] py-12 text-center space-y-6 max-w-2xl mx-auto px-6">
-      <div className="w-24 h-24 bg-purple-100 rounded-full flex items-center justify-center mb-4 border-4 border-purple-200 shadow-lg">
-        <BrainCircuit className="w-12 h-12 text-purple-600" />
-      </div>
       <h2 className="text-4xl font-black text-gray-900 tracking-tight">AI & Deepfakes</h2>
       <p className="text-xl text-gray-600 leading-relaxed font-medium">
         You've probably heard people talking about "AI" and "Deepfakes" on the news or on YouTube. But what are they, really?
@@ -34,7 +31,7 @@ export default function AIDeepfakeSimulator() {
            <span className="text-gray-700 font-bold">Millions of Pictures</span>
         </div>
         <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-xl flex flex-col items-center w-48 mt-8">
-           <BrainCircuit className="w-16 h-16 text-purple-600 mb-4 animate-pulse" />
+           <Bot className="w-16 h-16 text-purple-600 mb-4 animate-pulse" />
            <span className="text-gray-900 font-black text-lg">Robot Brain</span>
         </div>
         <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-xl flex flex-col items-center w-48">
@@ -109,7 +106,7 @@ export default function AIDeepfakeSimulator() {
             onClick={() => setDemoState('fake')}
             className={`p-4 rounded-xl border-2 font-bold text-lg flex items-center justify-between transition-all ${demoState === 'fake' ? 'bg-red-50 border-red-500 text-red-700 shadow-sm' : 'bg-white border-gray-200 text-gray-500 hover:bg-gray-50 shadow-sm'}`}
           >
-            <div className="flex items-center gap-3"><BrainCircuit className="w-6 h-6" /> AI Deepfake</div>
+            <div className="flex items-center gap-3"><Bot className="w-6 h-6" /> AI Deepfake</div>
             {demoState === 'fake' && <AlertTriangle className="w-5 h-5 text-red-600" />}
           </button>
         </div>

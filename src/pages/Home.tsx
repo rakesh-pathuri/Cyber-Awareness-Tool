@@ -8,18 +8,18 @@ export default function Home() {
   const { t } = useTranslation();
 
   return (
-    <div className="w-screen min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f] font-sans flex flex-col selection:bg-blue-500/30">
+    <div className="w-full min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#1d1d1f] font-sans flex flex-col selection:bg-blue-500/30">
       
       {/* Global Header / Nav */}
       <div className="fixed top-0 w-full h-12 bg-white/80 backdrop-blur-md border-b border-black/5 flex items-center justify-between px-8 z-50">
         <div className="flex items-center space-x-2 text-[14px] font-semibold tracking-tight">
-          <img src="/logo.jpg" alt="CAL Logo" className="w-6 h-6 rounded-md object-contain shadow-sm border border-black/5" />
+          <img src="/logo.png" alt="CAT Logo" className="w-6 h-6 rounded-md object-contain shadow-sm border border-black/5" />
           <span className="text-[#86868b]">| {t('home.title')}</span>
         </div>
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col items-center justify-center py-32 px-6">
+      <div className="flex-1 flex flex-col items-center justify-center py-20 px-6">
         {/* Hero Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ export default function Home() {
           
           <div className="flex flex-col items-center justify-center mb-16 border-b border-black/5 pb-12 text-center">
             <div className="flex items-center space-x-2 text-[14px] font-semibold tracking-tight mb-4">
-              <img src="/logo.jpg" alt="CAL Logo" className="w-8 h-8 rounded-md object-contain shadow-sm border border-black/5" />
+              <img src="/logo.png" alt="CAT Logo" className="w-8 h-8 rounded-md object-contain shadow-sm border border-black/5" />
               <span className="text-[#1d1d1f] tracking-tight text-lg">Cyber Awareness Tool</span>
             </div>
             <p className="text-[14px] text-[#86868b] max-w-sm leading-relaxed font-medium">

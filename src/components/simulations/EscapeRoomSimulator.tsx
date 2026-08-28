@@ -81,11 +81,7 @@ export default function EscapeRoomSimulator() {
               exit={{ opacity: 0 }}
               className="absolute inset-0 flex flex-col items-center justify-center p-8 bg-slate-900"
             >
-              <div className="w-24 h-24 bg-slate-800 rounded-full flex items-center justify-center mb-6 border-4 border-slate-700 relative">
-                <Lock className="w-12 h-12 text-slate-400" />
-                <div className="absolute -inset-2 border-2 border-red-500/50 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-              </div>
-              
+
               <h2 className="text-3xl font-black text-white mb-4">GAME OVER!</h2>
               <p className="text-slate-400 text-center max-w-lg mb-8">
                 Oh no! Hacker robots locked you inside the computer! To escape, you need to solve three puzzles to find the secret keys. Let's go!
@@ -257,11 +253,6 @@ export default function EscapeRoomSimulator() {
               animate={{ opacity: 1, scale: 1 }}
               className="absolute inset-0 flex flex-col items-center justify-center p-8 bg-green-950/30"
             >
-              <div className="w-24 h-24 bg-green-900/50 rounded-full flex items-center justify-center mb-6 border-4 border-green-500 relative">
-                <Unlock className="w-12 h-12 text-green-400" />
-                <div className="absolute -inset-2 border-2 border-green-500/50 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-              </div>
-              
               <h2 className="text-4xl font-black text-green-400 mb-4 tracking-widest text-center">YOU ESCAPED!</h2>
               <p className="text-green-200/70 text-center max-w-lg mb-8 text-lg">
                 Awesome job! You found the fake link, made a super password, and used safe Wi-Fi to escape the hackers!

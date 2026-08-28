@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, ShieldCheck, Terminal, Wifi, Lock, Unlock, User, Key, ArrowRight, Activity } from 'lucide-react';
+import { Shield, ShieldCheck, Terminal, Wifi, Lock, Unlock, User, Key, ArrowRight, Activity, Landmark } from 'lucide-react';
 
 interface Packet {
   id: string;
@@ -125,7 +125,7 @@ export default function WifiSimulator() {
             <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm mt-2">
               <div className="flex justify-center mb-4">
                 <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 shadow-inner">
-                  <Lock className="w-6 h-6" />
+                  <Landmark className="w-6 h-6" />
                 </div>
               </div>
               <h4 className="text-center text-[16px] font-bold text-gray-800 mb-5">GlobalTrust Bank</h4>

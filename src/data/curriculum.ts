@@ -51,19 +51,19 @@ export const curriculum: CurriculumItem[] = [
         id: 'm0-s1',
         type: 'visual',
         title: 'What is Cybersecurity?',
-        content: 'It means locking your digital doors. Just like you lock your house to keep bad guys out, you need to lock your phone and games!'
+        content: 'It means locking your digital doors. Just like you lock your house to keep bad guys out, you need to lock your phone and games!\n\nExample: Setting a password on your phone so your little brother can\'t play your games.'
       },
       {
         id: 'm0-s2',
         type: 'visual',
         title: 'You Are a Target',
-        content: 'Hackers want your accounts! They use them to trick your friends into thinking they are you.'
+        content: '**Hackers want your accounts!** They use them to trick your friends into thinking they are you.\n\nExample: A hacker logs into your game and asks your friends to send them free items.'
       },
       {
         id: 'm0-s3',
         type: 'visual',
-        title: 'Types of Hackers',
-        content: 'Not all hackers are bad!\n• Black Hat: The bad guys who steal.\n• White Hat: The good guys who protect us.\n• Grey Hat: The show-offs.'
+        title: 'Who are Hackers?',
+        content: 'Not all hackers are bad! Here is who they are:\n• **Black Hat Hackers**: The bad guys who try to steal your information.\n• **White Hat Hackers**: The good guys who help us protect our systems.\n• **Grey Hat Hackers**: The show-offs who break in just to prove they can.'
       }
     ]
   },
@@ -88,13 +88,13 @@ export const curriculum: CurriculumItem[] = [
         id: 'm1-s1',
         type: 'visual',
         title: 'The Problem with "123456"',
-        content: 'Hackers use super-fast robots to guess millions of simple passwords every second. "123456" is cracked instantly!'
+        content: 'Hackers use super-fast robots to guess millions of simple passwords every second. "123456" is cracked instantly!\n\nExample: If a robot tries 10,000 passwords a second, it will guess "batman" before you can blink.'
       },
       {
         id: 'm1-s2',
         type: 'visual',
         title: 'Length vs. Complexity',
-        content: 'A long secret phrase (like "Purple-Cat-Runs-Over-Clouds") is way harder for hacker robots to guess than a short password with symbols.'
+        content: 'A long secret phrase is way harder for hacker robots to guess than a short password with symbols.\n\n• **Short & Complex**: Tr0ub4dor&3 (Hard for you to remember, easy for robots to guess)\n• **Long & Simple**: Purple-Cat-Runs-Fast (Easy for you to remember, hard for robots)'
       },
       {
         id: 'm1-s3',

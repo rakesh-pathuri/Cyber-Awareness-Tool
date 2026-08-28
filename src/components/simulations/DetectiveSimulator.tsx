@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, ShieldAlert, ShieldCheck, Timer, Award, AlertTriangle, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Shield, ShieldCheck, Timer, AlertTriangle, CheckCircle2, ChevronRight } from 'lucide-react';
 
 type Scenario = {
   id: string;
@@ -156,9 +156,6 @@ export default function DetectiveSimulator() {
               exit={{ opacity: 0 }}
               className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center"
             >
-              <div className="w-24 h-24 bg-blue-900/30 rounded-full flex items-center justify-center mb-6 border border-blue-500/50">
-                <ShieldAlert className="w-12 h-12 text-blue-400" />
-              </div>
               <h2 className="text-4xl font-black text-white mb-4">SPEED ROUND</h2>
               <p className="text-slate-300 max-w-lg mb-8 text-lg">
                 You have 60 seconds to spot the scams! Get it wrong and you lose 5 seconds. Trust your instincts!
@@ -225,7 +222,6 @@ export default function DetectiveSimulator() {
               <div className="flex gap-8 h-full">
                 {/* Left Panel: Score */}
                 <div className="w-1/3 bg-slate-800 rounded-2xl border border-slate-700 p-8 flex flex-col items-center justify-center text-center">
-                  <Award className="w-20 h-20 text-yellow-500 mb-4" />
                   <h3 className="text-slate-400 font-bold uppercase tracking-widest text-sm mb-1">Final Rank</h3>
                   <h2 className="text-3xl font-black text-white mb-8">{getRank()}</h2>
                   

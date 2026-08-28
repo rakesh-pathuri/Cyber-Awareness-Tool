@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ShieldAlert, ShieldCheck, RefreshCw, Zap } from 'lucide-react';
+import { ShieldAlert, ShieldCheck, RefreshCw, Info } from 'lucide-react';
 
 const COMMON_PASSWORDS = ['123456', 'password', 'qwerty', '12345678', '111111', 'admin', 'cricket123'];
 
@@ -147,7 +147,7 @@ export default function PasswordSimulator() {
             ) : strength > 60 ? (
               <ShieldCheck className="w-4 h-4 text-[#34c759] shrink-0 mr-2 mt-0.5" />
             ) : (
-              <Zap className="w-4 h-4 text-[#ff9500] shrink-0 mr-2 mt-0.5" />
+              <Info className="w-4 h-4 text-[#ff9500] shrink-0 mr-2 mt-0.5" />
             )}
             <p className="text-[13px] font-medium text-[#1d1d1f] leading-snug">
               {feedback}
