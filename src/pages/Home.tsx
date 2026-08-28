@@ -13,16 +13,16 @@ export default function Home() {
 
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col items-center justify-center py-8 px-6">
+      <div className="flex-1 flex flex-col items-center justify-center py-8 px-6 -mt-12">
         {/* Hero Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-3xl mb-8 flex flex-col items-center"
+          className="text-center max-w-3xl mb-6 flex flex-col items-center"
         >
-          <img src="/logo.png" alt="CAT Logo" className="w-24 h-24 object-contain mb-6" />
-          <h1 className="text-[48px] leading-[1.05] font-semibold tracking-tight mb-3 text-[#1d1d1f]">
+          <img src="/logo.png" alt="CAT Logo" className="w-24 h-24 object-contain mb-4" />
+          <h1 className="text-[48px] leading-[1.05] font-semibold tracking-tight mb-2 text-[#1d1d1f]">
             {t('home.title')}
           </h1>
           <p className="text-[19px] leading-relaxed text-[#86868b] max-w-2xl mx-auto font-medium tracking-tight">
